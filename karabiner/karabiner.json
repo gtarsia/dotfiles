@@ -165,22 +165,22 @@
 
 
 
-          { "description": "f to close parens", "manipulators": [ {
+          { "description": "option|control h to go backwards word", "manipulators": [ {
             "from": { "key_code": "h", "modifiers": { "mandatory": [ "option", "control" ] } },
             "to": [ { "key_code": "left_arrow", "modifiers": [ "option" ] } ],
             "type": "basic"
           } ] },
-          { "description": "f to close parens", "manipulators": [ {
+          { "description": "option|control l to go forward word", "manipulators": [ {
             "from": { "key_code": "l", "modifiers": { "mandatory": [ "option", "control" ] } },
             "to": [ { "key_code": "right_arrow", "modifiers": [ "option" ] } ],
             "type": "basic"
           } ] },
-          { "description": "f to close parens", "manipulators": [ {
+          { "description": "option|control|shift h select word back", "manipulators": [ {
             "from": { "key_code": "h", "modifiers": { "mandatory": [ "option", "control", "shift" ] } },
             "to": [ { "key_code": "left_arrow", "modifiers": [ "option", "shift" ] } ],
             "type": "basic"
           } ] },
-          { "description": "f to close parens", "manipulators": [ {
+          { "description": "option|control|shift l select word forward", "manipulators": [ {
             "from": { "key_code": "l", "modifiers": { "mandatory": [ "option", "control", "shift" ] } },
             "to": [ { "key_code": "right_arrow", "modifiers": [ "option", "shift" ] } ],
             "type": "basic"
@@ -189,22 +189,71 @@
 
 
 
-          { "description": "f to close parens", "manipulators": [ {
+          { "description": "option|command h to go home", "manipulators": [ {
+            "from": { "key_code": "h", "modifiers": { "mandatory": [ "option", "command" ] } },
+            "to": [ { "key_code": "left_arrow", "modifiers": [ "fn" ] } ],
+            "type": "basic"
+          } ] },
+          { "description": "option|command l to go end", "manipulators": [ {
+            "from": { "key_code": "l", "modifiers": { "mandatory": [ "option", "command" ] } },
+            "to": [ { "key_code": "right_arrow", "modifiers": [ "fn" ] } ],
+            "type": "basic"
+          } ] },
+          { "description": "option|command|shift h to select end", "manipulators": [ {
+            "from": { "key_code": "j", "modifiers": { "mandatory": [ "option", "command", "shift" ] } },
+            "to": [ { "key_code": "left_arrow", "modifiers": [ "fn", "shift" ] } ],
+            "type": "basic"
+          } ] },
+          { "description": "option|command|shift l to select end", "manipulators": [ {
+            "from": { "key_code": "k", "modifiers": { "mandatory": [ "option", "command", "shift" ] } },
+            "to": [ { "key_code": "right_arrow", "modifiers": [ "fn", "shift" ] } ],
+            "type": "basic"
+          } ] },
+
+
+
+
+
+          { "description": "n to delete", "manipulators": [ {
             "from": { "key_code": "n", "modifiers": { "mandatory": [ "option" ] } },
             "to": [ { "key_code": "delete_or_backspace" } ],
             "type": "basic"
           } ] },
-          { "description": "f to close parens", "manipulators": [ {
+          { "description": "period to forward delete", "manipulators": [ {
             "from": { "key_code": "period", "modifiers": { "mandatory": [ "option" ] } },
             "to": [ { "key_code": "d", "modifiers": [ "control" ] } ],
             "type": "basic"
           } ] },
-          { "description": "j to close parens", "manipulators": [ {
+          { "description": "n to delete word", "manipulators": [ {
             "from": { "key_code": "n", "modifiers": { "mandatory": [ "option", "control" ] } },
             "to": [ { "key_code": "delete_or_backspace", "modifiers": [ "option" ] } ],
             "type": "basic"
           } ] },
-          { "description": "f to close parens", "manipulators": [ {
+          { "description": "period to forward word delete", "manipulators": [ {
+            "from": { "key_code": "period", "modifiers": { "mandatory": [ "option", "control" ] } },
+            "to": [ { "key_code": "delete_or_backspace", "modifiers": [ "option", "fn" ] } ],
+            "type": "basic"
+          } ] },
+          
+
+
+
+          { "description": "n to delete", "manipulators": [ {
+            "from": { "key_code": "n", "modifiers": { "mandatory": [ "option" ] } },
+            "to": [ { "key_code": "delete_or_backspace" } ],
+            "type": "basic"
+          } ] },
+          { "description": "period to forward delete", "manipulators": [ {
+            "from": { "key_code": "period", "modifiers": { "mandatory": [ "option" ] } },
+            "to": [ { "key_code": "d", "modifiers": [ "control" ] } ],
+            "type": "basic"
+          } ] },
+          { "description": "n to delete word", "manipulators": [ {
+            "from": { "key_code": "n", "modifiers": { "mandatory": [ "option", "control" ] } },
+            "to": [ { "key_code": "delete_or_backspace", "modifiers": [ "option" ] } ],
+            "type": "basic"
+          } ] },
+          { "description": "period to forward word delete", "manipulators": [ {
             "from": { "key_code": "period", "modifiers": { "mandatory": [ "option", "control" ] } },
             "to": [ { "key_code": "delete_or_backspace", "modifiers": [ "option", "fn" ] } ],
             "type": "basic"
@@ -215,7 +264,7 @@
 
 
           { "description": "f to close parens", "manipulators": [ {
-            "from": { "key_code": "b", "modifiers": { "mandatory": [ "option" ] } },
+            "from": { "key_code": "spacebar", "modifiers": { "mandatory": [ "option" ] } },
             "to": [ { "key_code": "return_or_enter" } ],
             "type": "basic"
           } ] },
