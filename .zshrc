@@ -78,15 +78,29 @@ source $ZSH/oh-my-zsh.sh
   alias ga.='git add .'
 unalias gap
   alias gap='git add -p'
+  alias gch='git checkout'
+  alias gfd='git fetch demand'
+  alias gfg='git fetch guido'
+  alias gla='git log --graph --decorate --pretty=oneline --abbrev-commit --all $argv'
 unalias gst
   alias gs='git status -sb'
   alias gdc='git diff --cached'
 unalias gr
   alias gr='git reset --'
+unalias grh
+  alias grh='git reset --hard'
+  alias grs='git reset --soft'
+  alias gph='git push heroku'
+  alias gpo='git push origin'
+  alias gpg='git push guido'
 
 # rails
 unalias rails
 unalias rake
+  alias ba='bundle add'
+
+# misc
+alias hotdog='open https://appear.in/superfluous-hotdog'
 
 # User configuration
 #
@@ -117,3 +131,4 @@ unalias rake
 # Example aliases
 alias runresurrect="while ! tmux run-shell ~/.tmux/plugins/tmux-resurrect/scripts/restore.sh; do sleep 0.2; done"
 alias we="web-ext run -s ~/git/dyslexia-reader/ -p ~/ff_profiles/stuff/ --keep-profile-changes"
+source ~/.zshenv
