@@ -14,43 +14,43 @@
           "basic.to_if_held_down_threshold_milliseconds": 500
         },
         "rules": [
-          { "description": "q to open brace", "manipulators": [ {
-            "from": { "key_code": "w", "modifiers": { "mandatory": [ "option" ] } },
-            "to": [ { "key_code": "close_bracket" } ],
-            "type": "basic"
-          } ] },
-          { "description": "w to close brace", "manipulators": [ {
-            "from": { "key_code": "w", "modifiers": { "mandatory": [ "option", "shift" ] } },
-            "to": [ { "key_code": "backslash" } ],
-            "type": "basic"
-          } ] },
-          { "description": "a to less than", "manipulators": [ {
+          { "description": "q to less than", "manipulators": [ {
             "from": { "key_code": "q", "modifiers": { "mandatory": [ "option" ] } },
             "to": [ { "key_code": "comma", "modifiers": [ "shift" ] } ],
             "type": "basic"
           } ] },
-          { "description": "s to more than", "manipulators": [ {
+          { "description": "shift q to more than", "manipulators": [ {
             "from": { "key_code": "q", "modifiers": { "mandatory": [ "option", "shift" ] } },
             "to": [ { "key_code": "period", "modifiers": [ "shift" ] } ],
             "type": "basic"
           } ] },
-          { "description": "e to open brackets", "manipulators": [ {
+          { "description": "e to open brace", "manipulators": [ {
             "from": { "key_code": "e", "modifiers": { "mandatory": [ "option" ] } },
+            "to": [ { "key_code": "close_bracket" } ],
+            "type": "basic"
+          } ] },
+          { "description": "shift e to close brace", "manipulators": [ {
+            "from": { "key_code": "e", "modifiers": { "mandatory": [ "option", "shift" ] } },
+            "to": [ { "key_code": "backslash" } ],
+            "type": "basic"
+          } ] },
+          { "description": "r to open brackets", "manipulators": [ {
+            "from": { "key_code": "r", "modifiers": { "mandatory": [ "option" ] } },
             "to": [ { "key_code": "close_bracket", "modifiers": [ "shift" ] } ],
             "type": "basic"
           } ] },
-          { "description": "r to close brackets", "manipulators": [ {
-            "from": { "key_code": "e", "modifiers": { "mandatory": [ "option", "shift" ] } },
+          { "description": "shift r to close brackets", "manipulators": [ {
+            "from": { "key_code": "r", "modifiers": { "mandatory": [ "option", "shift" ] } },
             "to": [ { "key_code": "backslash", "modifiers": [ "shift" ] } ],
             "type": "basic"
           } ] },
-          { "description": "d to open parens", "manipulators": [ {
-            "from": { "key_code": "r", "modifiers": { "mandatory": [ "option" ] } },
+          { "description": "w to open parens", "manipulators": [ {
+            "from": { "key_code": "w", "modifiers": { "mandatory": [ "option" ] } },
             "to": [ { "key_code": "8", "modifiers": [ "shift" ] } ],
             "type": "basic"
           } ] },
-          { "description": "f to close parens", "manipulators": [ {
-            "from": { "key_code": "r", "modifiers": { "mandatory": [ "option", "shift" ] } },
+          { "description": "shift w to close parens", "manipulators": [ {
+            "from": { "key_code": "w", "modifiers": { "mandatory": [ "option", "shift" ] } },
             "to": [ { "key_code": "9", "modifiers": [ "shift" ] } ],
             "type": "basic"
           } ] },
