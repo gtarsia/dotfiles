@@ -54,26 +54,6 @@
             "to": [ { "key_code": "9", "modifiers": [ "shift" ] } ],
             "type": "basic"
           } ] },
-          { "description": "z in hyphen", "manipulators": [ {
-            "from": { "key_code": "z", "modifiers": { "mandatory": [ "option" ] } },
-            "to": [ { "key_code": "hyphen" } ],
-            "type": "basic"
-          } ] },
-          { "description": "shift z to underscore", "manipulators": [ {
-            "from": { "key_code": "z", "modifiers": { "mandatory": [ "option", "shift" ] } },
-            "to": [ { "key_code": "international1" } ],
-            "type": "basic"
-          } ] },
-          { "description": "", "manipulators": [ {
-            "from": { "key_code": "c", "modifiers": { "mandatory": [ "option" ] } },
-            "to": [ { "key_code": "2", "modifiers": [ "shift" ] } ],
-            "type": "basic"
-          } ] },
-          { "description": "f to close parens", "manipulators": [ {
-            "from": { "key_code": "v", "modifiers": { "mandatory": [ "option" ] } },
-            "to": [ { "key_code": "7", "modifiers": [ "shift" ] } ],
-            "type": "basic"
-          } ] },
 
 
 
@@ -82,19 +62,19 @@
             "to": [ { "key_code": "international1" } ],
             "type": "basic"
           } ] },
-          { "description": "w to close brace", "manipulators": [ {
+          { "description": "a to pipe", "manipulators": [ {
             "from": { "key_code": "a", "modifiers": { "mandatory": [ "option", "shift" ] } },
-            "to": [ { "key_code": "backslash" } ],
+            "to": [ { "key_code": "international3", "modifiers": [ "shift" ] } ],
             "type": "basic"
           } ] },
-          { "description": "a to less than", "manipulators": [ {
+          { "description": "s to hyphen", "manipulators": [ {
             "from": { "key_code": "s", "modifiers": { "mandatory": [ "option" ] } },
             "to": [ { "key_code": "hyphen" } ],
             "type": "basic"
           } ] },
-          { "description": "s to more than", "manipulators": [ {
+          { "description": "shift s to tilde", "manipulators": [ {
             "from": { "key_code": "s", "modifiers": { "mandatory": [ "option", "shift" ] } },
-            "to": [ { "key_code": "period", "modifiers": [ "shift" ] } ],
+            "to": [ { "key_code": "equal_sign", "modifiers": [ "shift" ] } ],
             "type": "basic"
           } ] },
           { "description": "e to open brackets", "manipulators": [ {
@@ -102,22 +82,65 @@
             "to": [ { "key_code": "7", "modifiers": [ "shift" ] } ],
             "type": "basic"
           } ] },
-          { "description": "r to close brackets", "manipulators": [ {
+          { "description": "shift d to hash sign", "manipulators": [ {
             "from": { "key_code": "d", "modifiers": { "mandatory": [ "option", "shift" ] } },
-            "to": [ { "key_code": "backslash", "modifiers": [ "shift" ] } ],
+            "to": [ { "key_code": "3", "modifiers": [ "shift" ] } ],
             "type": "basic"
           } ] },
-          { "description": "d to open parens", "manipulators": [ {
+          { "description": "d to double quotes", "manipulators": [ {
             "from": { "key_code": "f", "modifiers": { "mandatory": [ "option" ] } },
             "to": [ { "key_code": "2", "modifiers": [ "shift" ] } ],
             "type": "basic"
           } ] },
-          { "description": "f to close parens", "manipulators": [ {
+          { "description": "shift f to backtick", "manipulators": [ {
             "from": { "key_code": "f", "modifiers": { "mandatory": [ "option", "shift" ] } },
-            "to": [ { "key_code": "9", "modifiers": [ "shift" ] } ],
+            "to": [ { "key_code": "open_bracket", "modifiers": [ "shift" ] } ],
             "type": "basic"
           } ] },
 
+
+
+
+          { "description": "z to slash", "manipulators": [ {
+            "from": { "key_code": "z", "modifiers": { "mandatory": [ "option" ] } },
+            "to": [ { "key_code": "slash" } ],
+            "type": "basic"
+          } ] },
+          { "description": "shift z to backslash", "manipulators": [ {
+            "from": { "key_code": "z", "modifiers": { "mandatory": [ "option", "shift" ] } },
+            "to": [ { "key_code": "international3", "modifiers": [ "option" ] } ],
+            "type": "basic"
+          } ] },
+          { "description": "x to plus sign", "manipulators": [ {
+            "from": { "key_code": "x", "modifiers": { "mandatory": [ "option" ] } },
+            "to": [ { "key_code": "semicolon", "modifiers": [ "shift" ] } ],
+            "type": "basic"
+          } ] },
+          { "description": "shift x to percentage", "manipulators": [ {
+            "from": { "key_code": "x", "modifiers": { "mandatory": [ "option", "shift" ] } },
+            "to": [ { "key_code": "5", "modifiers": [ "shift" ] } ],
+            "type": "basic"
+          } ] },
+          { "description": "c to star sign", "manipulators": [ {
+            "from": { "key_code": "c", "modifiers": { "mandatory": [ "option" ] } },
+            "to": [ { "key_code": "quote", "modifiers": [ "shift" ] } ],
+            "type": "basic"
+          } ] },
+          { "description": "shift c to circumflex", "manipulators": [ {
+            "from": { "key_code": "c", "modifiers": { "mandatory": [ "option", "shift" ] } },
+            "to": [ { "key_code": "equal_sign" } ],
+            "type": "basic"
+          } ] },
+          { "description": "v to equal sign", "manipulators": [ {
+            "from": { "key_code": "v", "modifiers": { "mandatory": [ "option" ] } },
+            "to": [ { "key_code": "hyphen", "modifiers": [ "shift" ] } ],
+            "type": "basic"
+          } ] },
+          { "description": "shift v to exclamation mark", "manipulators": [ {
+            "from": { "key_code": "v", "modifiers": { "mandatory": [ "option", "shift" ] } },
+            "to": [ { "key_code": "5", "modifiers": [ "shift" ] } ],
+            "type": "basic"
+          } ] },
 
 
 
@@ -267,17 +290,7 @@
             "from": { "key_code": "spacebar", "modifiers": { "mandatory": [ "option" ] } },
             "to": [ { "key_code": "return_or_enter" } ],
             "type": "basic"
-          } ] },
-
-
-
-
-          { "description": "Change Option+Backward-Delete to Command+Backward-Delete",
-            "manipulators": [ {
-              "from": { "key_code": "w", "modifiers": { "mandatory": [ "control" ], "optional": [ "any" ] } },
-              "to": [ { "key_code": "delete_or_backspace", "modifiers": [ "option" ] } ],
-              "type": "basic"
-            } ] }
+          } ] }
         ]
       },
       "devices": [],

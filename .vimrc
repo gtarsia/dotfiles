@@ -3,8 +3,10 @@
 call plug#begin('~/.vim/plugged')
 Plug '/usr/local/opt/fzf'
 Plug 'chase/vim-ansible-yaml'
+Plug 'davidpdrsn/vim-spectacular'
 Plug 'dracula/vim'
 Plug 'godlygeek/tabular'
+Plug 'hsanson/vim-android'
 Plug 'junegunn/fzf.vim'
 Plug 'kana/vim-arpeggio'
 Plug 'kana/vim-textobj-user'
@@ -35,11 +37,13 @@ map <SPACE> <leader>
 nnoremap <leader>fs :w<cr>
 nnoremap <leader>so :so $MYVIMRC<cr>
 nnoremap <leader>fi :Files<cr>
+nnoremap <leader>ag :Ag<cr>
 nnoremap <leader>qq :q<cr>
 nnoremap <leader>qa :qa<cr>
 nnoremap <leader>qf :q!<cr>
 nnoremap <leader>ss /
 nnoremap <leader>c :
+nnoremap <leader>t :write\|:call spectacular#run_tests()<cr>
 nmap <leader>sa :Ag<cr>
 
 call arpeggio#map('iv', '', 0, 'jk', '<Esc>')
@@ -110,6 +114,11 @@ command! -bang -nargs=* Ag
 
 " move modifier to control
 let g:move_key_modifier = 'C'
+
+" spectacular
+call spectacular#add_test_runner('ruby', 'rails test', '_test.rb')
+let g:spectacular_use_terminal_emulator = 0
+
 syntax on
 
 color dracula
