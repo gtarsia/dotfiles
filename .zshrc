@@ -7,6 +7,8 @@ export ZSH=/Users/romigui/.oh-my-zsh
 # Add rbenv 
 export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="$HOME/.rbenv/shims:$PATH"
+export RUBYMOTION_ANDROID_SDK="/Users/romigui/.rubymotion-android/sdk"
+export RUBYMOTION_ANDROID_NDK="/Users/romigui/.rubymotion-android/ndk"
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -67,7 +69,6 @@ plugins=(
   globalias
   rails
   tmux
-  zsh-autosuggestions
   zsh_reload
 )
 
@@ -79,14 +80,16 @@ source $ZSH/oh-my-zsh.sh
 unalias gap
   alias gap='git add -p'
   alias gch='git checkout'
+  alias gcf='git clean -f'
+ alias gcfd='git clean -fd'
   alias gfd='git fetch demand'
   alias gfg='git fetch guido'
   alias gla='git log --graph --decorate --pretty=oneline --abbrev-commit --all $argv'
 unalias gst
-  alias gs='git status -sb'
+   alias gs='git status -sb'
   alias gdc='git diff --cached'
 unalias gr
-  alias gr='git reset --'
+   alias gr='git reset --'
 unalias grh
   alias grh='git reset --hard'
   alias grs='git reset --soft'
@@ -95,9 +98,18 @@ unalias grh
   alias gpg='git push guido'
 
 # rails
-unalias rails
 unalias rake
   alias ba='bundle add'
+unalias rails
+alias rdcm='rake db:drop db:create db:migrate'
+alias rdcms='rake db:drop db:create db:migrate db:seed'
+alias rdrs='rake db:reset db:seed'
+ alias rdr='rake db:reset'
+alias rgsc='rails generate scaffold_controller'
+ alias rgh='rails generate --help'
+ alias rrs='rails restart'
+unalias rt
+  alias rt='rails test'
 
 # misc
 alias hotdog='open https://appear.in/superfluous-hotdog'
