@@ -1,5 +1,5 @@
-" Plugins
 " -----------------------
+" Plugins
 call plug#begin('~/.vim/plugged')
 Plug '/usr/local/opt/fzf'
 Plug 'OrangeT/vim-csharp'
@@ -7,13 +7,13 @@ Plug 'chase/vim-ansible-yaml'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'davidpdrsn/vim-spectacular'
 Plug 'dracula/vim'
+Plug 'EvanDotPro/nerdtree-symlink'
 Plug 'godlygeek/tabular'
 Plug 'hsanson/vim-android'
 Plug 'junegunn/fzf.vim'
 Plug 'kchmck/vim-coffee-script'
 Plug 'kana/vim-arpeggio'
 Plug 'kana/vim-textobj-user'
-Plug 'matze/vim-move'
 Plug 'mtscout6/vim-cjsx', {'for': 'coffee'}
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'rcarraretto/vim-surround', { 'branch': 'test' }
@@ -26,6 +26,7 @@ Plug 'tpope/vim-rails'
 Plug 'tpope/vim-scriptease'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-scripts/openvpn'
 Plug 'vim-ruby/vim-ruby'
 Plug 'vim-scripts/openvpn'
 Plug 'whatyouhide/vim-textobj-erb'
@@ -59,6 +60,10 @@ nnoremap <leader>t :write\|:call spectacular#run_tests()<cr>
 nnoremap <leader>ww <C-w>w
 noremap <leader>c :
 noremap <leader>ffs :w !sudo tee %<cr>
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
 nmap <leader>sa :Ag<cr>
 
@@ -97,7 +102,7 @@ set whichwrap+=<,>,h,l,[,]
 
 " keep undo settings
 set undofile
-set undodir=/Users/romigui/.vimundo/
+set undodir=/home/romigui/.vimundo/
 
 " i have no idea what this is
 noremap <key> i <Esc>r
@@ -129,6 +134,7 @@ let NERDTreeShowHidden=1
 autocmd FileType yml setlocal ts=2 sts=2 sw=2 expandtab
 
 " fzf
+set rtp+=~/.fzf
 command! -bang -nargs=* Ag
   \ call fzf#vim#ag(<q-args>,
   \                 <bang>0 ? fzf#vim#with_preview('up:60%')
@@ -145,5 +151,11 @@ let g:spectacular_use_terminal_emulator = 0
 syntax on
 syntax enable
 filetype plugin indent on
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
 
+let g:dracula_colorterm = 0
 color dracula

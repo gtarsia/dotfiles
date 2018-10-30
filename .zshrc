@@ -2,13 +2,11 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/romigui/.oh-my-zsh
+export ZSH=/usr/share/oh-my-zsh
 
 # Add rbenv 
 export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="$HOME/.rbenv/shims:$PATH"
-export RUBYMOTION_ANDROID_SDK="/Users/romigui/.rubymotion-android/sdk"
-export RUBYMOTION_ANDROID_NDK="/Users/romigui/.rubymotion-android/ndk"
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -70,6 +68,8 @@ plugins=(
   rails
   tmux
   zsh_reload
+  history-substring-search
+  notify
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -116,6 +116,8 @@ alias hotdog='open https://appear.in/superfluous-hotdog'
 
 # User configuration
 #
+zstyle ':notify:*' error-title "Command failed"
+zstyle ':notify:*' success-title "Command finished"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -144,3 +146,7 @@ alias hotdog='open https://appear.in/superfluous-hotdog'
 alias runresurrect="while ! tmux run-shell ~/.tmux/plugins/tmux-resurrect/scripts/restore.sh; do sleep 0.2; done"
 alias we="web-ext run -s ~/git/dyslexia-reader/ -p ~/ff_profiles/stuff/ --keep-profile-changes"
 source ~/.zshenv
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
