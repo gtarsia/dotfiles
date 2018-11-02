@@ -7,6 +7,7 @@ export ZSH=/usr/share/oh-my-zsh
 # Add rbenv 
 export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="$HOME/.rbenv/shims:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -63,16 +64,21 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+  archlinux
   git
   globalias
   rails
   tmux
   zsh_reload
   history-substring-search
-  notify
+  bgnotify
 )
 
 source $ZSH/oh-my-zsh.sh
+
+# archlinux
+   alias yas='yaourt -S'
+  alias yasn='yaourt -S --noconfirm'
 
 # My aliases
 # git /\(unalias\|alias\) 
@@ -116,7 +122,7 @@ alias hotdog='open https://appear.in/superfluous-hotdog'
 
 # User configuration
 #
-zstyle ':notify:*' error-title "Command failed"
+zstyle ':notify:*' command-complete-timeout 1
 zstyle ':notify:*' success-title "Command finished"
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -143,8 +149,6 @@ zstyle ':notify:*' success-title "Command finished"
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-alias runresurrect="while ! tmux run-shell ~/.tmux/plugins/tmux-resurrect/scripts/restore.sh; do sleep 0.2; done"
-alias we="web-ext run -s ~/git/dyslexia-reader/ -p ~/ff_profiles/stuff/ --keep-profile-changes"
 source ~/.zshenv
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

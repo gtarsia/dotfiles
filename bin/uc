@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+nvim -p ~/.vimrc ~/.zshrc ~/.config/alacritty/alacritty.yml

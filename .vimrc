@@ -7,6 +7,7 @@ Plug 'chase/vim-ansible-yaml'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'davidpdrsn/vim-spectacular'
 Plug 'dracula/vim'
+Plug 'dylanaraps/wal.vim'
 Plug 'EvanDotPro/nerdtree-symlink'
 Plug 'godlygeek/tabular'
 Plug 'hsanson/vim-android'
@@ -157,5 +158,29 @@ if exists('+termguicolors')
   set termguicolors
 endif
 
+" status hide
+let s:hidden_all = 0
+function! ToggleHiddenAll()
+    if s:hidden_all  == 0
+        let s:hidden_all = 1
+        set noshowmode
+        set noruler
+        set laststatus=0
+        set noshowcmd
+        set nonumber
+        set norelativenumber
+    else
+        let s:hidden_all = 0
+        set showmode
+        set ruler
+        set laststatus=2
+        set showcmd
+        set number
+        set relativenumber
+    endif
+endfunction
+
+nnoremap <S-h> :call ToggleHiddenAll()<CR>
+
 let g:dracula_colorterm = 0
-color dracula
+colorscheme wal
