@@ -2,12 +2,14 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
+source ~/.zshenv
 export ZSH=/usr/share/oh-my-zsh
 
 # Add rbenv 
 export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="$HOME/.rbenv/shims:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/gitGdotfiles/bin:$PATH"
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -126,6 +128,8 @@ zstyle ':notify:*' command-complete-timeout 1
 zstyle ':notify:*' success-title "Command finished"
 
 # export MANPATH="/usr/local/man:$MANPATH"
+alias gw='npm run gulp-watch'
+alias dw='npm run gulp-dotwatch'
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -149,7 +153,7 @@ zstyle ':notify:*' success-title "Command finished"
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-source ~/.zshenv
+alias runresurrect="while ! tmux run-shell ~/.tmux/plugins/tmux-resurrect/scripts/restore.sh; do sleep 0.2; done"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export PATH="$HOME/.rbenv/bin:$PATH"

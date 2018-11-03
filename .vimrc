@@ -30,6 +30,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/openvpn'
 Plug 'vim-ruby/vim-ruby'
 Plug 'vim-scripts/openvpn'
+Plug 'lambdalisue/suda.vim'
 Plug 'whatyouhide/vim-textobj-erb'
 call plug#end()
 
@@ -183,4 +184,4 @@ endfunction
 nnoremap <S-h> :call ToggleHiddenAll()<CR>
 
 let g:dracula_colorterm = 0
-colorscheme wal
+color dracula
