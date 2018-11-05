@@ -1366,7 +1366,7 @@ xkb_symbols "pc+br(nodeadkeys)+inet(evdev)+ctrl(nocaps)+terminate(ctrl_alt_bksp)
     };
     key <AC06> {
         type[group1]= "FOUR_LEVEL_ALPHABETIC",
-        symbols[Group1]= [               h,               H,         ,         Hstroke ],
+        symbols[Group1]= [               h,               H,         hstroke,         Hstroke ],
         symbols[Group2]= [               h,               H ],
         symbols[Group3]= [         hstroke,         Hstroke ]
     };
