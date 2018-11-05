@@ -183,5 +183,8 @@ endfunction
 
 nnoremap <S-h> :call ToggleHiddenAll()<CR>
 
+" easier terminal exit
+tnoremap <C-t> <C-\><C-n>
+
 let g:dracula_colorterm = 0
 color dracula
