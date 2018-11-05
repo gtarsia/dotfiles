@@ -122,6 +122,10 @@ unalias rt
 # misc
 alias hotdog='open https://appear.in/superfluous-hotdog'
 
+# unalias annoying zsh grep
+unalias grep
+alias ggrep='\grep  --color=auto --exclude-dir=.bzr --exclude-dir=CVS --exclude-dir=.git --exclude-dir=.hg --exclude-dir=.svn'
+
 # User configuration
 #
 zstyle ':notify:*' command-complete-timeout 1
