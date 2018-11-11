@@ -4,6 +4,8 @@
 # Path to your oh-my-zsh installation.
 source ~/.zshenv
 export ZSH=/usr/share/oh-my-zsh
+export FZF_DEFAULT_OPTS="--history=$HOME/.fzf_history"
+export WINEARCH=win32
 
 # Add rbenv 
 export PATH="$HOME/.rbenv/bin:$PATH"

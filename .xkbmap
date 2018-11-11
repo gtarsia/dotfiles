@@ -1360,7 +1360,7 @@ xkb_symbols "pc+br(nodeadkeys)+inet(evdev)+ctrl(nocaps)+terminate(ctrl_alt_bksp)
     };
     key <AD11> {
         type[group1]= "FOUR_LEVEL",
-        symbols[Group1]= [      apostrophe,           grave,           acute,           grave ],
+        symbols[Group1]= [      at,           grave,           acute,           grave ],
         symbols[Group2]= [      apostrophe,           grave ],
         symbols[Group3]= [           acute ]
     };

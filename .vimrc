@@ -136,12 +136,14 @@ let NERDTreeShowHidden=1
 autocmd FileType yml setlocal ts=2 sts=2 sw=2 expandtab
 
 " fzf
-set rtp+=~/.fzf
-command! -bang -nargs=* Ag
-  \ call fzf#vim#ag(<q-args>,
-  \                 <bang>0 ? fzf#vim#with_preview('up:60%')
-  \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
-  \                 <bang>0)
+command! -nargs=* AgQ call fzf#vim#ag(<q-args>, {'down': '40%', 'options': '-q '.shellescape(<q-args>.' ')})
+" command! -bang -nargs=* Ag
+"   \ call fzf#vim#ag(<q-args>,
+"   \                 <bang>0 ? fzf#vim#with_preview('up:60%')
+"   \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
+"   \                 <bang>0)
+
+let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 " move modifier to control
 let g:move_key_modifier = 'C'
