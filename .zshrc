@@ -123,6 +123,7 @@ unalias rt
 
 # misc
 alias hotdog='open https://appear.in/superfluous-hotdog'
+alias k9='kill -9'
 
 # unalias annoying zsh grep
 unalias grep
@@ -164,3 +165,4 @@ alias runresurrect="while ! tmux run-shell ~/.tmux/plugins/tmux-resurrect/script
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
+eval "$(nodenv init -)"

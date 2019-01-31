@@ -57,7 +57,7 @@ xkb_keycodes "evdev+aliases(qwerty)" {
     <AB10> = 61;
     <RTSH> = 62;
     <KPMU> = 63;
-    <LALT> = 108;
+    <LALT> = 133;
     <SPCE> = 65;
     <CAPS> = 66;
     <FK01> = 67;
@@ -125,7 +125,7 @@ xkb_keycodes "evdev+aliases(qwerty)" {
     <HNGL> = 130;
     <HJCV> = 131;
     <AE13> = 132;
-    <LWIN> = 133;
+    <LWIN> = 108;
     <RWIN> = 134;
     <COMP> = 135;
     <STOP> = 136;
@@ -1216,7 +1216,7 @@ xkb_compatibility "complete" {
     };
 };
 
-xkb_symbols "pc+br(nodeadkeys)+inet(evdev)+ctrl(nocaps)+terminate(ctrl_alt_bksp)" {
+xkb_symbols "pc+br(nodeadkeys)+inet(evdev)+altwin(swap_lalt_lwin)+ctrl(nocaps)+terminate(ctrl_alt_bksp)" {
 
     name[group1]="Portuguese (Brazil, no dead keys)";
 
@@ -1407,14 +1407,14 @@ xkb_symbols "pc+br(nodeadkeys)+inet(evdev)+ctrl(nocaps)+terminate(ctrl_alt_bksp)
         symbols[Group1]= [               h,               H,         Left,         Left, Left, Left  ]
     };
     key <AC07> {
-        type[group1]= "FOUR_LEVEL_SEMIALPHABETIC",
-        symbols[Group1]= [               j,               J,       Down,       dead_horn ],
+        type[group1]= "SHIFT+ALT+CTRL",
+        symbols[Group1]= [               j,               J,       Down,       Down, Down, Down ],
         symbols[Group2]= [               j,               J ],
         symbols[Group3]= [       dead_hook ]
     };
     key <AC08> {
-        type[group1]= "FOUR_LEVEL_SEMIALPHABETIC",
-        symbols[Group1]= [               k,               K,             Up,       ampersand ],
+        type[group1]= "SHIFT+ALT+CTRL",
+        symbols[Group1]= [               k,               K,             Up,       Up, Up, Up ],
         symbols[Group2]= [               k,               K ],
         symbols[Group3]= [             kra ]
     };

@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
-ln -s ./.alacritty.yml $HOME/.alacritty.yml
-ln -s ./.zshrc $HOME/.zshrc
-ln -s ./.vimrc $HOME/.vimrc
-ln -s ./.tmux.conf $HOME/.tmux.conf
-ln -s ./.i3.conf $HOME/.i3/config
-ln -s ./.rofi.conf $HOME/.config/rofi/config
+ln -s $HOME/git/dotfiles/.alacritty.yml $HOME/.alacritty.yml
+ln -s $HOME/git/dotfiles/.zshrc $HOME/.zshrc
+ln -s $HOME/git/dotfiles/.vimrc $HOME/.vimrc
+ln -s $HOME/git/dotfiles/.vimrc $HOME/.config/nvim/init.vim
+ln -s $HOME/git/dotfiles/.tmux.conf $HOME/.tmux.conf
+# ln -s ./.i3.conf $HOME/.i3/config
+# ln -s ./.rofi.conf $HOME/.config/rofi/config
 touch $HOME/.zshenv

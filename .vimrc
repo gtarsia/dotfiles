@@ -5,18 +5,26 @@ Plug '/usr/local/opt/fzf'
 Plug 'OrangeT/vim-csharp'
 Plug 'chase/vim-ansible-yaml'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'calviken/vim-gdscript3'
+Plug 'chrisbra/NrrwRgn'
 Plug 'davidpdrsn/vim-spectacular'
 Plug 'dracula/vim'
 Plug 'dylanaraps/wal.vim'
+Plug 'elixir-editors/vim-elixir'
 Plug 'EvanDotPro/nerdtree-symlink'
 Plug 'godlygeek/tabular'
 Plug 'hsanson/vim-android'
+Plug 'jceb/vim-orgmode'
 Plug 'junegunn/fzf.vim'
 Plug 'kchmck/vim-coffee-script'
 Plug 'kana/vim-arpeggio'
 Plug 'kana/vim-textobj-user'
+Plug 'michaeljsmith/vim-indent-object'
 Plug 'mtscout6/vim-cjsx', {'for': 'coffee'}
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'pangloss/vim-javascript'
+Plug 'plasticboy/vim-markdown'
+Plug 'posva/vim-vue'
 Plug 'rcarraretto/vim-surround', { 'branch': 'test' }
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
@@ -44,13 +52,17 @@ endif
 map <SPACE> <leader>
 nnoremap <leader>ag :Ag<cr>
 nnoremap <leader>c :
+noremap <leader>c :
 nnoremap <leader>gs :Gstatus<cr>
 vnoremap <leader>gr :Gread<cr>
 vnoremap <leader>gw :Gwrite<cr>
-nnoremap <leader>ffs :w !sudo tee %<cr>
+nnoremap <leader>ff :!npx eslint --fix %<cr>
 nnoremap <leader>fi :Files<cr>
 nnoremap <leader>fs :w<cr>
+nnoremap <leader>fas :w suda://%<cr>
 nnoremap <leader>hi :History<cr>
+nnoremap <leader>nf :NERDTreeFind<CR>
+nmap <leader>ns :WidenRegion<CR><C-O>
 nnoremap <leader>op :exec 'silent !open -a "Google Chrome" % &'<cr>
 nnoremap <leader>qa :qa<cr>
 nnoremap <leader>qf :q!<cr>
@@ -59,28 +71,28 @@ nnoremap <leader>sp :PlugInstall!<cr>
 nnoremap <leader>so :so $MYVIMRC<cr>
 nnoremap <leader>ss /
 nnoremap <leader>t :write\|:call spectacular#run_tests()<cr>
+nnoremap <leader>tt V:Strikethrough<cr>
 nnoremap <leader>ww <C-w>w
-noremap <leader>c :
+nnoremap <leader>wq :wq<cr>
 noremap <leader>ffs :w !sudo tee %<cr>
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+" search
+vnoremap // y/<C-R>"<CR>
+
 nmap <leader>sa :Ag<cr>
 
 call arpeggio#map('iv', '', 0, 'jk', '<Esc>')
 " I used Ctrl-c here because for some reason, using escape didn't work
 call arpeggio#map('c', '', 0, 'jk', '<C-c>')
-call arpeggio#map('nic', '', 0, 'df', '<cr>')
-call arpeggio#map('ic', '', 0, 'ui', '<Bs>')
 
 nnoremap du :diffupdate<cr>
 
 if has('nvim')
   call arpeggio#map('t', '', 0, 'jk', '<Esc>')
-  call arpeggio#map('t', '', 0, 'df', '<cr>')
-  call arpeggio#map('t', '', 0, 'ui', '<Bs>')
 endif
 
 
@@ -98,6 +110,7 @@ set expandtab
 set tabstop=2
 set shiftwidth=2
 autocmd FileType java setlocal shiftwidth=2 tabstop=2
+autocmd FileType cs setlocal shiftwidth=4 tabstop=4
 
 " wrap with arrows and newlines
 set whichwrap+=<,>,h,l,[,]
@@ -111,6 +124,8 @@ noremap <key> i <Esc>r
 
 " thor binding
 au BufRead,BufNewFile *.thor set filetype=ruby
+au BufRead,BufNewFile *.html.tt set filetype=eruby
+au BufRead,BufNewFile *.coffee.tt set filetype=coffee
 
 " add python bindings
 let g:python2_host_prog = '/usr/bin/python'
@@ -155,11 +170,11 @@ let g:spectacular_use_terminal_emulator = 0
 syntax on
 syntax enable
 filetype plugin indent on
-if exists('+termguicolors')
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-  set termguicolors
-endif
+" if exists('+termguicolors')
+"   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+"   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+"   set termguicolors
+" endif
 
 " status hide
 let s:hidden_all = 0
@@ -187,6 +202,22 @@ nnoremap <S-h> :call ToggleHiddenAll()<CR>
 
 " easier terminal exit
 tnoremap <C-t> <C-\><C-n>
+
+" auto save folds
+" augroup AutoSaveFolds
+"   autocmd!
+"   autocmd BufWinLeave *.txt mkview
+"   autocmd BufWinEnter *.txt silent loadview
+" augroup END
+
+" set indent for txt files
+" au BufRead,BufNewFile *.txt set fdm=indent
+set nofoldenable
+
+" narrow region bindings
+nmap <leader>nn jVai:NR!<cr>
+set hidden
+
 
 let g:dracula_colorterm = 0
 color dracula
