@@ -8,6 +8,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'calviken/vim-gdscript3'
 Plug 'chrisbra/NrrwRgn'
 Plug 'davidpdrsn/vim-spectacular'
+Plug 'digitaltoad/vim-pug'
 Plug 'dracula/vim'
 Plug 'dylanaraps/wal.vim'
 Plug 'elixir-editors/vim-elixir'
@@ -53,15 +54,16 @@ map <SPACE> <leader>
 nnoremap <leader>ag :Ag<cr>
 nnoremap <leader>c :
 noremap <leader>c :
-nnoremap <leader>gs :Gstatus<cr>
-vnoremap <leader>gr :Gread<cr>
-vnoremap <leader>gw :Gwrite<cr>
 nnoremap <leader>ff :!npx eslint --fix %<cr>
 nnoremap <leader>fi :Files<cr>
 nnoremap <leader>fs :w<cr>
 nnoremap <leader>fas :w suda://%<cr>
+nnoremap <leader>gs :Gstatus<cr>
+vnoremap <leader>gr :Gread<cr>
+vnoremap <leader>gw :Gwrite<cr>
 nnoremap <leader>hi :History<cr>
 nnoremap <leader>nf :NERDTreeFind<CR>
+nmap <leader>nn jVai:NR!<cr>
 nmap <leader>ns :WidenRegion<CR><C-O>
 nnoremap <leader>op :exec 'silent !open -a "Google Chrome" % &'<cr>
 nnoremap <leader>qa :qa<cr>
@@ -70,8 +72,9 @@ nnoremap <leader>qq :q<cr>
 nnoremap <leader>sp :PlugInstall!<cr>
 nnoremap <leader>so :so $MYVIMRC<cr>
 nnoremap <leader>ss /
-nnoremap <leader>t :write\|:call spectacular#run_tests()<cr>
 nnoremap <leader>tt V:Strikethrough<cr>
+nmap <leader>tc viwS`
+nmap <leader>tb viwS*gvS*
 nnoremap <leader>ww <C-w>w
 nnoremap <leader>wq :wq<cr>
 noremap <leader>ffs :w !sudo tee %<cr>
@@ -143,6 +146,7 @@ let g:surround_116 = "params: { \r }"
 set diffopt+="vertical"
 
 map <C-n> :NERDTreeToggle<CR>
+"
 " enable line numbers
 let NERDTreeShowLineNumbers=1
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
@@ -215,9 +219,31 @@ tnoremap <C-t> <C-\><C-n>
 set nofoldenable
 
 " narrow region bindings
-nmap <leader>nn jVai:NR!<cr>
 set hidden
 
 
 let g:dracula_colorterm = 0
 color dracula
+
+function! ExtractScript() range
+  let listing = getline(a:firstline)
+  let matches = matchlist(listing, 'Listing \(\w\+\).\(\w\+\)')
+  let chapter = matches[1]
+  let listingNumber = matches[2]
+  let subchapter = matchstr(fnamemodify(expand('%'), ':h'), '\(\d\+.\d\+\)$')
+  let codePath = expand('%:p:h') . '/code/' . chapter . '.' . listingNumber . '.ruby'
+  call writefile(getline(a:firstline+1, a:lastline), codePath)
+  normal gvdk
+  call append('.', ['', listing, '', '<<< @/docs/redacted/poodr/'.chapter.'/'.subchapter.'/code/'.chapter.'.'.listingNumber.'.ruby', ''])
+endfunction
+
+vnoremap <leader>es :call ExtractScript()<cr>
+
+function! Snooze()
+  let amount = input('Move how many lines down: ')
+  normal! dd
+  execute "normal! " . amount . "j"
+  normal! P
+endfunction
+
+nnoremap <leader>sn :call Snooze()<cr>
