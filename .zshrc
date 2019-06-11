@@ -7,6 +7,7 @@ export ZSH=/usr/share/oh-my-zsh
 export FZF_DEFAULT_OPTS="--history=$HOME/.fzf_history"
 export WINEARCH=win32
 
+
 # Add rbenv 
 export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="$HOME/.rbenv/shims:$PATH"
@@ -67,8 +68,12 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
+
+setopt HIST_IGNORE_ALL_DUPS
+
 plugins=(
   archlinux
+  docker-compose
   git
   globalias
   rails
@@ -107,6 +112,14 @@ unalias grh
   alias gpo='git push origin'
   alias gpg='git push guido'
 
+# docker-compose
+
+unalias dcup
+  alias dcu='docker-compose up'
+  alias dcub='docker-compose up --build'
+unalias dcdn
+  alias dcd='docker-compose down'
+
 # rails
 unalias rake
   alias ba='bundle add'
@@ -138,6 +151,10 @@ zstyle ':notify:*' success-title "Command finished"
 alias gw='npm run gulp-watch'
 alias dw='npm run gulp-dotwatch'
 
+alias lg='light'
+alias lgs='light -S'
+alias nexp='node --experimental-repl-await'
+
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
@@ -165,4 +182,5 @@ alias runresurrect="while ! tmux run-shell ~/.tmux/plugins/tmux-resurrect/script
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
+export PATH="$HOME/.yarn/bin:$PATH"
 eval "$(nodenv init -)"

@@ -1,27 +1,29 @@
-" -----------------------
 " Plugins
 call plug#begin('~/.vim/plugged')
+" Plug 'OrangeT/vim-csharp'
+" Plug 'chase/vim-ansible-yaml'
+" Plug 'calviken/vim-gdscript3'
+" Plug 'chrisbra/NrrwRgn'
+" Plug 'davidpdrsn/vim-spectacular'
+" Plug 'digitaltoad/vim-pug'
+" Plug 'dylanaraps/wal.vim'
+" Plug 'elixir-editors/vim-elixir'
+" Plug 'hsanson/vim-android'
+" Plug 'jceb/vim-orgmode'
+" Plug 'kchmck/vim-coffee-script'
+" Plug 'mtscout6/vim-cjsx', {'for': 'coffee'}
+
 Plug '/usr/local/opt/fzf'
-Plug 'OrangeT/vim-csharp'
-Plug 'chase/vim-ansible-yaml'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'calviken/vim-gdscript3'
-Plug 'chrisbra/NrrwRgn'
-Plug 'davidpdrsn/vim-spectacular'
-Plug 'digitaltoad/vim-pug'
 Plug 'dracula/vim'
-Plug 'dylanaraps/wal.vim'
-Plug 'elixir-editors/vim-elixir'
 Plug 'EvanDotPro/nerdtree-symlink'
 Plug 'godlygeek/tabular'
-Plug 'hsanson/vim-android'
-Plug 'jceb/vim-orgmode'
+Plug 'heavenshell/vim-jsdoc'
 Plug 'junegunn/fzf.vim'
-Plug 'kchmck/vim-coffee-script'
 Plug 'kana/vim-arpeggio'
 Plug 'kana/vim-textobj-user'
+Plug 'lambdalisue/suda.vim'
 Plug 'michaeljsmith/vim-indent-object'
-Plug 'mtscout6/vim-cjsx', {'for': 'coffee'}
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'pangloss/vim-javascript'
 Plug 'plasticboy/vim-markdown'
@@ -38,15 +40,15 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/openvpn'
 Plug 'vim-ruby/vim-ruby'
-Plug 'vim-scripts/openvpn'
-Plug 'lambdalisue/suda.vim'
 Plug 'whatyouhide/vim-textobj-erb'
 call plug#end()
 
+" relative number and line endings
 set nu relativenumber
 if has('nvim')
   set listchars=tab:▸\ ,eol:¬
 endif
+
 
 " leader maps
 "" I map it this view so I can see what I'm typing in the showcmd corner 
@@ -66,6 +68,7 @@ nnoremap <leader>nf :NERDTreeFind<CR>
 nmap <leader>nn jVai:NR!<cr>
 nmap <leader>ns :WidenRegion<CR><C-O>
 nnoremap <leader>op :exec 'silent !open -a "Google Chrome" % &'<cr>
+vnoremap <leader>p "_dP
 nnoremap <leader>qa :qa<cr>
 nnoremap <leader>qf :q!<cr>
 nnoremap <leader>qq :q<cr>
@@ -83,20 +86,22 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+
 " search
 vnoremap // y/<C-R>"<CR>
 
-nmap <leader>sa :Ag<cr>
 
+" arpeggios
 call arpeggio#map('iv', '', 0, 'jk', '<Esc>')
 " I used Ctrl-c here because for some reason, using escape didn't work
 call arpeggio#map('c', '', 0, 'jk', '<C-c>')
-
-nnoremap du :diffupdate<cr>
-
 if has('nvim')
   call arpeggio#map('t', '', 0, 'jk', '<Esc>')
 endif
+
+
+" git diff
+nnoremap du :diffupdate<cr>
 
 
 " search settings
@@ -105,8 +110,10 @@ set hlsearch
 set ignorecase
 set smartcase
 
+
 " clear searches on double enter, annoying
 nnoremap <CR> :noh<CR><CR>
+
 
 " my tab settings
 set expandtab
@@ -115,24 +122,30 @@ set shiftwidth=2
 autocmd FileType java setlocal shiftwidth=2 tabstop=2
 autocmd FileType cs setlocal shiftwidth=4 tabstop=4
 
+
 " wrap with arrows and newlines
 set whichwrap+=<,>,h,l,[,]
+
 
 " keep undo settings
 set undofile
 set undodir=/home/romigui/.vimundo/
 
+
 " i have no idea what this is
 noremap <key> i <Esc>r
+
 
 " thor binding
 au BufRead,BufNewFile *.thor set filetype=ruby
 au BufRead,BufNewFile *.html.tt set filetype=eruby
 au BufRead,BufNewFile *.coffee.tt set filetype=coffee
 
+
 " add python bindings
 let g:python2_host_prog = '/usr/bin/python'
 let g:python3_host_prog = '/usr/local/bin/python3'
+
 
 " clipboard for os x
 set clipboard+=unnamedplus
@@ -145,14 +158,14 @@ set clipboard+=unnamedplus
 let g:surround_116 = "params: { \r }"
 set diffopt+="vertical"
 
-map <C-n> :NERDTreeToggle<CR>
-"
+
 " enable line numbers
 let NERDTreeShowLineNumbers=1
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 let b:surround_{char2nr('b')} = '**\r**'
 let NERDTreeShowHidden=1
 autocmd FileType yml setlocal ts=2 sts=2 sw=2 expandtab
+
 
 " fzf
 command! -nargs=* AgQ call fzf#vim#ag(<q-args>, {'down': '40%', 'options': '-q '.shellescape(<q-args>.' ')})
@@ -161,16 +174,14 @@ command! -nargs=* AgQ call fzf#vim#ag(<q-args>, {'down': '40%', 'options': '-q '
 "   \                 <bang>0 ? fzf#vim#with_preview('up:60%')
 "   \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
 "   \                 <bang>0)
-
 let g:fzf_history_dir = '~/.local/share/fzf-history'
+
 
 " move modifier to control
 let g:move_key_modifier = 'C'
 
-" spectacular
-call spectacular#add_test_runner('ruby', 'rails test', '_test.rb')
-let g:spectacular_use_terminal_emulator = 0
 
+" I have no idea what this is either
 syntax on
 syntax enable
 filetype plugin indent on
@@ -179,6 +190,7 @@ filetype plugin indent on
 "   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 "   set termguicolors
 " endif
+
 
 " status hide
 let s:hidden_all = 0
@@ -202,10 +214,13 @@ function! ToggleHiddenAll()
     endif
 endfunction
 
+
 nnoremap <S-h> :call ToggleHiddenAll()<CR>
+
 
 " easier terminal exit
 tnoremap <C-t> <C-\><C-n>
+
 
 " auto save folds
 " augroup AutoSaveFolds
@@ -218,13 +233,36 @@ tnoremap <C-t> <C-\><C-n>
 " au BufRead,BufNewFile *.txt set fdm=indent
 set nofoldenable
 
+
 " narrow region bindings
 set hidden
 
 
+" skeletons
+function! GuidoTemplate(ext)
+    if (line('$') == 1 && getline(1) == '')
+      execute '0r ~/.vim/templates/skeleton.' . a:ext
+      normal Gddgg
+    end
+endfunction
+
+if has("autocmd")
+  augroup templates
+    autocmd BufNewFile,BufReadPost *.vue call GuidoTemplate('vue')
+  augroup END
+endif
+
+
+" nerdtree
+map <C-n> :NERDTreeToggle<CR>
+
+
+" dracula
 let g:dracula_colorterm = 0
 color dracula
 
+
+" some adhoc script I wrote for extracting something
 function! ExtractScript() range
   let listing = getline(a:firstline)
   let matches = matchlist(listing, 'Listing \(\w\+\).\(\w\+\)')
@@ -236,14 +274,14 @@ function! ExtractScript() range
   normal gvdk
   call append('.', ['', listing, '', '<<< @/docs/redacted/poodr/'.chapter.'/'.subchapter.'/code/'.chapter.'.'.listingNumber.'.ruby', ''])
 endfunction
-
 vnoremap <leader>es :call ExtractScript()<cr>
 
+
+" some other stuff I don't use anymore
 function! Snooze()
   let amount = input('Move how many lines down: ')
   normal! dd
   execute "normal! " . amount . "j"
   normal! P
 endfunction
-
 nnoremap <leader>sn :call Snooze()<cr>
