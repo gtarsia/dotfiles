@@ -1,8 +1,8 @@
 " Plugins
 call plug#begin('~/.vim/plugged')
-" Plug 'OrangeT/vim-csharp'
+Plug 'OrangeT/vim-csharp'
 " Plug 'chase/vim-ansible-yaml'
-" Plug 'calviken/vim-gdscript3'
+Plug 'calviken/vim-gdscript3'
 " Plug 'chrisbra/NrrwRgn'
 " Plug 'davidpdrsn/vim-spectacular'
 " Plug 'digitaltoad/vim-pug'
@@ -26,6 +26,7 @@ Plug 'lambdalisue/suda.vim'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'pangloss/vim-javascript'
+" Plug 'pearofducks/ansible-vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'posva/vim-vue'
 Plug 'rcarraretto/vim-surround', { 'branch': 'test' }
@@ -40,6 +41,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/openvpn'
 Plug 'vim-ruby/vim-ruby'
+Plug 'wavded/vim-stylus'
 Plug 'whatyouhide/vim-textobj-erb'
 call plug#end()
 
@@ -156,15 +158,14 @@ set clipboard+=unnamedplus
 "let g:surround_61 = "<%= \r %>"
 "let b:surround_{char2nr('i')} = "*\r*"
 let g:surround_116 = "params: { \r }"
+let g:surround_{char2nr("B")} = "**\r**"
 set diffopt+="vertical"
 
 
 " enable line numbers
 let NERDTreeShowLineNumbers=1
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
-let b:surround_{char2nr('b')} = '**\r**'
 let NERDTreeShowHidden=1
-autocmd FileType yml setlocal ts=2 sts=2 sw=2 expandtab
 
 
 " fzf
@@ -176,6 +177,15 @@ command! -nargs=* AgQ call fzf#vim#ag(<q-args>, {'down': '40%', 'options': '-q '
 "   \                 <bang>0)
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 
+function! s:ag_with_opts(arg, bang)
+  let tokens  = split(a:arg)
+  let ag_opts = '--ignore .git --ignore yarn.lock --hidden'
+  let query   = join(filter(copy(tokens), 'v:val !~ "^-"'))
+  call fzf#vim#ag(query, ag_opts, a:bang ? {} : {'down': '40%'})
+endfunction
+
+command! -nargs=* -bang Ag call s:ag_with_opts(<q-args>, <bang>0)
+" command! AgC call fzf#vim#ag_raw('--ignore yarn.lock')
 
 " move modifier to control
 let g:move_key_modifier = 'C'
@@ -195,23 +205,23 @@ filetype plugin indent on
 " status hide
 let s:hidden_all = 0
 function! ToggleHiddenAll()
-    if s:hidden_all  == 0
-        let s:hidden_all = 1
-        set noshowmode
-        set noruler
-        set laststatus=0
-        set noshowcmd
-        set nonumber
-        set norelativenumber
-    else
-        let s:hidden_all = 0
-        set showmode
-        set ruler
-        set laststatus=2
-        set showcmd
-        set number
-        set relativenumber
-    endif
+  if s:hidden_all  == 0
+    let s:hidden_all = 1
+    set noshowmode
+    set noruler
+    set laststatus=0
+    set noshowcmd
+    set nonumber
+    set norelativenumber
+  else
+    let s:hidden_all = 0
+    set showmode
+    set ruler
+    set laststatus=2
+    set showcmd
+    set number
+    set relativenumber
+  endif
 endfunction
 
 
@@ -238,12 +248,22 @@ set nofoldenable
 set hidden
 
 
+" yml
+augroup filetype_yaml
+  autocmd!
+  autocmd BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
+  autocmd FileType yaml |
+  setlocal shiftwidth=2 |
+  setlocal softtabstop=2 |
+  setlocal tabstop=2
+augroup END
+
 " skeletons
 function! GuidoTemplate(ext)
-    if (line('$') == 1 && getline(1) == '')
-      execute '0r ~/.vim/templates/skeleton.' . a:ext
-      normal Gddgg
-    end
+  if (line('$') == 1 && getline(1) == '')
+    execute '0r ~/.vim/templates/skeleton.' . a:ext
+    normal Gddgg
+  end
 endfunction
 
 if has("autocmd")

@@ -4,4 +4,4 @@ git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
 
-yay -S --noconfirm git base-devel neovim vim-plug fzf the_silver_searcher oh-my-zsh-git
+yay -S --noconfirm git base-devel neovim vim-plug fzf the_silver_searcher oh-my-zsh-git openvpn dnsmasq tmuxinator 
