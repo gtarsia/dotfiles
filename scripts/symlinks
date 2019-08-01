@@ -11,7 +11,8 @@ ln -s $HOME/git/dotfiles/.vimrc $HOME/.config/nvim/init.vim
 touch $HOME/.zshenv
 
 # root user
-sudo mkdir -p /root/.config/nvim/init.vim
+sudo mkdir -p /root/.config/nvim
+sudo ln -s $HOME/git/dotfiles/.zshrc /root/.zshrc
 sudo ln -s $HOME/git/dotfiles/.vimrc /root/.config/nvim/init.vim
 sudo ln -s $HOME/git/dotfiles/br-nitro5.map.gz /usr/share/kbd/keymaps/i386/qwerty/br-nitro5.map.gz
 
