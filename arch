@@ -4,7 +4,7 @@ git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
 
-yay -S --noconfirm git base-devel neovim vim-plug fzf the_silver_searcher oh-my-zsh-git openvpn dnsmasq tmuxinator alacritty discord franz-bin freerdp-git godot google-chrome ttf-meslo xseticon slack-desktop nodenv apache-tools light-git tmux openssh
+yay -S --noconfirm git base-devel neovim vim-plug fzf the_silver_searcher oh-my-zsh-git openvpn dnsmasq tmuxinator alacritty discord franz-bin freerdp-git godot google-chrome ttf-meslo xseticon slack-desktop nodenv apache-tools light-git tmux openssh nodenv-node-build-git
 
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
