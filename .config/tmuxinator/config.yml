@@ -1,0 +1,11 @@
+# /home/romigui/.config/tmuxinator/1config.yml
+
+name: 1config
+root: ~/
+
+windows:
+  - config: nvim -p .vimrc .zshrc /home/romigui/.zshenv .tmux.conf /home/romigui/.xinitrc /home/romigui/.profile /home/romigui/git/dotfiles/.xkbmap /etc/nginx/nginx.conf .config/alacritty/alacritty.yml /etc/hosts vpn/gecko.ovpn /etc/pacman.conf
+  - openvpn:
+      panes:
+        - sudo openvpn --config $HOME/vpn/new.ovpn
+        - nvim /etc/resolv.conf

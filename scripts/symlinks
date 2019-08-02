@@ -14,6 +14,11 @@ ln -sf $HOME/dotfiles/.vimrc $HOME/.config/nvim/init.vim
 
 touch $HOME/.zshenv
 
+# tmux
+mkdir -p $HOME/.tmux
+ln -sf $HOME/dotfiles/.tmux/resurrect $HOME/.tmux/resurrect
+ln -sf $HOME/dotfiles/.config/tmuxinator $HOME/.config/tmuxinator
+
 # root user
 sudo mkdir -p /root/.config/nvim
 sudo ln -sf $HOME/dotfiles/.zshrc /root/.zshrc

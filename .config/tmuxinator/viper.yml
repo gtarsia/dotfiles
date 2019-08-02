@@ -1,0 +1,15 @@
+# /home/romigui/.config/tmuxinator/viper.yml
+
+name: viper
+root: /home/romigui/git/viper/
+windows:
+  - processes:
+      panes:
+        - dw:
+          - cd src/viper
+          - npm run gulp-dotwatch
+        - gw:
+          - cd src/viper
+          - npm run gulp-watch
+        - docker start eager_snyder
+  - editor: nvim

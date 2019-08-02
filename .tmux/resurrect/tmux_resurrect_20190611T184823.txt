@@ -1,0 +1,10 @@
+pane	0config	1	:config	1	:*	0	:/home/romigui	1	nvim	:nvim -p .vimrc .zshrc /home/romigui/.zshenv .tmux.conf /home/romigui/.xinitrc /home/romigui/.profile /home/romigui/git/dotfiles/.xkbmap /etc/nginx/nginx.conf .config/alacritty/alacritty.yml /etc/hosts vpn/gecko.ovpn /etc/pacman.conf
+pane	0config	2	:openvpn	0	:-	0	:/home/romigui	0	sudo	:sudo openvpn --config /home/romigui/vpn/new.ovpn
+pane	0config	2	:openvpn	0	:-	1	:/home/romigui	1	nvim	:nvim /etc/resolv.conf
+pane	1run	1	:process	1	:*	0	:/home/romigui	1	zsh	:
+pane	1run	2	:server	0	:-	0	:/home/romigui	1	zsh	:
+window	0config	1	1	:*	5e5a,136x34,0,0,97
+window	0config	2	0	:-	d416,136x34,0,0[136x16,0,0,98,136x17,0,17,99]
+window	1run	1	1	:*	af5a,136x34,0,0,103
+window	1run	2	0	:-	af5b,136x34,0,0,104
+state	1run	

@@ -1,0 +1,12 @@
+# /home/romigui/.config/tmuxinator/colony.yml
+
+name: colony
+root: ~/git/colonyStarter/packages/colony-example-vue
+windows:
+  - process:
+      panes:
+        - yarn start-ganache
+        - yarn deploy-contracts; yarn start-trufflepig
+        - echo yarn seed-network
+        - echo hey
+  - editor: nvim

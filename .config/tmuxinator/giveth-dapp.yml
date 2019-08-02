@@ -1,0 +1,12 @@
+# ~/.tmuxinator/sample.yml
+
+name: giveth-dapp
+root: ~/git/giveth-dapp
+
+windows:
+  - processes:
+      layout: 06e5,147x37,0,0{73x37,0,0,46,73x37,74,0,66}
+      panes:
+        - npm start
+        - echo hey
+  - editor: nvim

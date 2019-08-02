@@ -1,0 +1,13 @@
+# ~/.tmuxinator/sample.yml
+
+name: feathers-giveth
+root: ~/git/feathers-giveth
+
+windows:
+  - processes:
+      layout: 9196,147x37,0,0[147x23,0,0,77,147x13,0,24{73x13,0,24,80,73x13,74,24,81}]
+      panes:
+        - echo hey
+        - yarn deploy-local && yarn start:networks
+        - yarn start
+  - editor: nvim

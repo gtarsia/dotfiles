@@ -1,0 +1,60 @@
+pane	0blog	1	:puma	1	:*	0	:/home/romigui/git/blog	0	zsh	:
+pane	0blog	1	:puma	1	:*	1	:/home/romigui/git/blog	1	zsh	:
+pane	0blog	2	:zsh	0	:-	0	:/home/romigui/git/blog	1	zsh	:
+pane	1config	1	:nvim	0	:-	0	:/home/romigui	1	nvim	:nvim -p .vimrc .zshrc /home/romigui/.zshenv .tmux.conf /home/romigui/.xinitrc /home/romigui/.profile /home/romigui/git/dotfiles/.xkbmap /etc/nginx/nginx.conf .config/alacritty/alacritty.yml /etc/hosts vpn/gecko.ovpn /etc/pacman.conf
+pane	1config	2	:sudo	1	:*	0	:/var/lib/pacman/local	1	zsh	:
+pane	1config	2	:sudo	1	:*	1	:/var/lib/pacman/local	0	nvim	:nvim /etc/resolv.conf
+pane	2viper	1	:zsh	1	:*	0	:/home/romigui/git/tmp	0	zsh	:
+pane	2viper	1	:zsh	1	:*	1	:/home/romigui/git/tmp	1	nvim	:nvim
+pane	2viper	2	:nvim	0	:-	0	:/home/romigui/git/viper	1	nvim	:nvim
+pane	3demand-vue	1	:zsh	0	:-	0	:/home/romigui/git/demand-vue	1	nvim	:nvim
+pane	3demand-vue	1	:zsh	0	:-	1	:/home/romigui/git/demand-vue	0	zsh	:
+pane	3demand-vue	2	:nvim	1	:*	0	:/home/romigui/git/demand-vue	1	nvim	:nvim
+pane	4	1	:zsh	0	:-	0	:/home/romigui/git/search-js/server	1	node	:node index.js
+pane	4	1	:zsh	0	:-	1	:/home/romigui/git/search-js/web	0	node	:node /home/romigui/.nodenv/versions/11.12.0/bin/yarn serve
+pane	4	1	:zsh	0	:-	2	:/home/romigui/git/search-js/server	0	zsh	:
+pane	4	1	:zsh	0	:-	3	:/home/romigui/git/search-js/web	0	zsh	:
+pane	4	1	:zsh	0	:-	4	:/home/romigui/git/search-js	0	zsh	:
+pane	4	2	:nvim	1	:*	0	:/home/romigui/git/search-js	1	nvim	:nvim
+pane	5abides	1	:zsh	0	:-	0	:/home/romigui/git/abides	1	zsh	:
+pane	5abides	2	:zsh	1	:*	0	:/home/romigui/git/abides	1	nvim	:nvim
+pane	6part-finder	1	:[tmux]	1	:*	0	:/home/romigui/git/part-finder	0	zsh	:
+pane	6part-finder	1	:[tmux]	1	:*	1	:/home/romigui/git/part-finder/packages/part-finder-modular	1	zsh	:
+pane	6part-finder	2	:nvim	0	:-	0	:/home/romigui/git/part-finder/packages	1	nvim	:nvim
+pane	7react	1	:zsh	1	:*	0	:/home/romigui/git/colonyStarter/packages/colony-example-react	0	zsh	:
+pane	7react	1	:zsh	1	:*	1	:/home/romigui/git/colonyStarter/packages/colony-example	1	zsh	:
+pane	7react	1	:zsh	1	:*	2	:/home/romigui/git/colonyStarter/packages/colony-example-react	0	zsh	:
+pane	7react	2	:nvim	0	:-	0	:/home/romigui/git/colonyStarter/packages/colony-example-react	1	nvim	:nvim
+pane	8vue	1	:zsh	1	:*Z	0	:/home/romigui	1	zsh	:
+pane	8vue	1	:zsh	1	:*Z	1	:/home/romigui/git/colonyStarter/packages/colony-example-vue	0	zsh	:
+pane	8vue	1	:zsh	1	:*Z	2	:/home/romigui/git/colonyStarter/packages/colony-example-vue	0	zsh	:
+pane	8vue	1	:zsh	1	:*Z	3	:/home/romigui/git/colonyStarter/packages/colony-example-vue	0	sudo	:sudo optirun nvidia-settings -c :8
+pane	8vue	2	:nvim	0	:-	0	:/home/romigui/git/colonyStarter/packages/colony-example-vue	1	nvim	:nvim
+pane	9	1	:zsh	0	:-	0	:/home/romigui/git/fitmentgroup-demo	0	zsh	:
+pane	9	1	:zsh	0	:-	1	:/home/romigui/Downloads	1	nvim	:nvim
+pane	9	2	:zsh	1	:*	0	:/home/romigui/git/fitmentgroup-demo	1	nvim	:nvim
+pane	9z	1	:nvim	0	:-	0	:/home/romigui	1	nvim	:nvim tasks.md
+pane	9z	3	:nvim	1	:*	0	:/home/romigui	1	nvim	:nvim questions-and-notes.md
+window	0blog	1	1	:*	0201,191x48,0,0{95x48,0,0,0,95x48,96,0,1}
+window	0blog	2	0	:-	cd3f,191x48,0,0,2
+window	1config	1	0	:-	cd40,191x48,0,0,3
+window	1config	2	1	:*	15d3,191x48,0,0{97x48,0,0,4,93x48,98,0,5}
+window	2viper	1	1	:*	021c,191x48,0,0{95x48,0,0,6,95x48,96,0,7}
+window	2viper	2	0	:-	cd45,191x48,0,0,8
+window	3demand-vue	1	0	:-	0659,191x48,0,0{96x48,0,0,9,94x48,97,0,10}
+window	3demand-vue	2	1	:*	66d0,191x48,0,0,11
+window	4	1	0	:-	2f1e,191x48,0,0[191x15,0,0{95x15,0,0,12,95x15,96,0,33},191x15,0,16{95x15,0,16,34,95x15,96,16,35},191x16,0,32,36]
+window	4	2	1	:*	66d2,191x48,0,0,13
+window	5abides	1	0	:-	66d3,191x48,0,0,14
+window	5abides	2	1	:*	66d4,191x48,0,0,15
+window	6part-finder	1	1	:*	6b56,191x48,0,0{95x48,0,0,16,95x48,96,0,17}
+window	6part-finder	2	0	:-	66d7,191x48,0,0,18
+window	7react	1	1	:*	8346,191x48,0,0[191x22,0,0,19,191x25,0,23{95x25,0,23,20,95x25,96,23,21}]
+window	7react	2	0	:-	e6d1,191x48,0,0,22
+window	8vue	1	1	:*Z	a548,191x48,0,0[191x14,0,0{97x14,0,0,23,93x14,98,0,24},191x33,0,15{97x33,0,15,25,93x33,98,15,26}]
+window	8vue	2	0	:-	e6d6,191x48,0,0,27
+window	9	1	0	:-	ab5c,191x48,0,0{95x48,0,0,28,95x48,96,0,29}
+window	9	2	1	:*	66d0,191x48,0,0,30
+window	9z	1	0	:-	66d1,191x48,0,0,31
+window	9z	3	1	:*	66d2,191x48,0,0,32
+state	4	1config

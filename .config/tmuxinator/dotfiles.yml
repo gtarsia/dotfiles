@@ -1,0 +1,12 @@
+# /home/romigui/.config/tmuxinator/github.yml
+
+name: dotfiles
+root: ~/dotfiles
+
+windows:
+  - processes:
+      layout: 0502,147x37,0,0[147x18,0,0,22,147x18,0,19,24]
+      panes:
+        - echo
+        - echo
+  - editor: nvim
