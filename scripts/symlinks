@@ -5,7 +5,11 @@ ln -sf $HOME/dotfiles/.zshrc $HOME/.zshrc
 ln -sf $HOME/dotfiles/.vimrc $HOME/.vimrc
 ln -sf $HOME/dotfiles/.tmux.conf $HOME/.tmux.conf
 
-mkdir -p $HOME/.config/nvim/init.vim
+mkdir -p $HOME/.config/autostart
+ln -sf $HOME/dotfiles/autostart/boot.desktop $HOME/.config/autostart/boot.desktop
+ln -sf $HOME/dotfiles/autostart/boot.zsh $HOME/.config/autostart/boot.zsh
+
+mkdir -p $HOME/.config/nvim
 ln -sf $HOME/dotfiles/.vimrc $HOME/.config/nvim/init.vim
 
 touch $HOME/.zshenv

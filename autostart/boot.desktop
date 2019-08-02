@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=boot
+Comment=boot Startup Script
+Exec="/home/romigui/.config/autostart/boot.zsh"
+StartupNotify=false
+Terminal=false

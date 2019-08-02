@@ -111,6 +111,8 @@ alias tmn='tmuxinator n'
 alias tms='tmuxinator s'
 alias tmg='tmuxinator s git'
 alias tme='tmuxinator e'
+alias tmf='tmuxinator s fs'
+alias tmm='tmuxinator s me'
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
