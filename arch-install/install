@@ -36,6 +36,6 @@ mkfs.ext4 $PARTITION_OK
 mount $PARTITION_OK /mnt
 pacstrap /mnt base
 genfstab -U /mnt >> /mnt/etc/fstab
-mkdir -p /mnt/home/romigui
-cp -R /mother/home/romigui/dotfiles /mnt/home/romigui/
+mkdir -p /home
+cp -R /mother/home/romigui/dotfiles /mnt/home/
 arch-chroot /mnt

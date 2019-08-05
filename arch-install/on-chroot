@@ -20,6 +20,7 @@ passwd
 useradd -m -s /bin/zsh romigui
 echo "requesting password for romigui..."
 passwd romigui
+mv /home/dotfiles/ /home/romigui/dotfiles
 
 echo "configuring grub..."
 mkdir -p /esp
