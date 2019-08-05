@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+FILES=$(readlink -f $(dirname $0)/files)
+
+# zsh
+echo linking .zshrc...
+ln -sf $FILES/zsh/.zshrc /root/.zshrc
+touch /root/.zshenv
+
+# vim
+echo linking .zshrc...
+mkdir -p /root/.config/nvim
+ln -sf $FILES/vim/.vimrc /root/.config/nvim/init.vim

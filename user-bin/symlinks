@@ -1,4 +1,5 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
+
 FILES=$(readlink -f $(dirname $0)/files)
 echo $FILES
 
@@ -31,3 +32,5 @@ echo linking .config/autostart/boot...
 mkdir -p $HOME/.config/autostart
 cp -f $FILES/autostart/boot.desktop $HOME/.config/autostart/boot.desktop
 cp -f $FILES/autostart/boot.zsh $HOME/.config/autostart/boot.zsh
+
+echo symlinks complete!

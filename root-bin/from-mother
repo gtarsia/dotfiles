@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+echo copying root things from mother...
+cp /mother/etc/hosts /etc/hosts
+cp /mother/.wifi /.wifi
+

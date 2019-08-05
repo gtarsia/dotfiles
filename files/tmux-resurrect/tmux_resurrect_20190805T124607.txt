@@ -1,0 +1,19 @@
+pane	0notes	1	:notes	1	:*	0	:/home/romigui	1	nvim	:nvim questions-and-notes.md
+pane	0notes	2	:tasks	0	:-	0	:/home/romigui	1	nvim	:nvim tasks.md
+pane	1config	1	:config	1	:*	0	:/home/romigui	1	nvim	:nvim -p .vimrc .zshrc /home/romigui/.zshenv .tmux.conf /home/romigui/.xinitrc /home/romigui/.profile /home/romigui/git/dotfiles/.xkbmap /etc/nginx/nginx.conf .config/alacritty/alacritty.yml /etc/hosts vpn/gecko.ovpn /etc/pacman.conf
+pane	1config	2	:openvpn	0	:-	0	:/home/romigui	1	zsh	:
+pane	1config	2	:openvpn	0	:-	1	:/home/romigui	0	nvim	:nvim /etc/resolv.conf
+pane	2run	1	:process	1	:*	0	:/home/romigui	1	zsh	:
+pane	2run	2	:server	0	:-	0	:/home/romigui	1	zsh	:
+pane	3me	1	:editor	1	:*	0	:/home/romigui	1	nvim	:nvim
+pane	3me	2	:processes	0	:-	0	:/home/romigui	1	zsh	:
+pane	3me	2	:processes	0	:-	1	:/home/romigui	0	zsh	:
+window	0notes	1	1	:*	b0fd,120x32,0,0,0
+window	0notes	2	0	:-	b0fe,120x32,0,0,1
+window	1config	1	1	:*	b0ff,120x32,0,0,2
+window	1config	2	0	:-	6bb4,120x32,0,0[120x15,0,0,3,120x16,0,16,4]
+window	2run	1	1	:*	b102,120x32,0,0,5
+window	2run	2	0	:-	b103,120x32,0,0,6
+window	3me	1	1	:*	b104,120x32,0,0,7
+window	3me	2	0	:-	92b9,80x24,0,0[80x11,0,0,8,80x12,0,12,9]
+state	3me	1config

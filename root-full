@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+bash "./root/mount"
+bash "./root/from-mother"
+bash "./root/console"
+bash "./root/base-pkgs"
+bash "./root/symlinks"
+
+# bash ./root/extra-pkgs

@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+echo configuring git...
+git config --global user.email "guidotarsia@gmail.com"
+git config --global user.name "zzyyxxww"
+git config --global core.editor nvim
+
+git clone git@github.com:zzyyxxww/dotfiles.git $HOME/dotfiles

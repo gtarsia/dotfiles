@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 
+echo connecting wifi...
 OUTPUT=/tmp/wifi_output.txt
 rm -f $OUTPUT
 wpa_supplicant -B -c /.wifi -i wlp2s0 -f $OUTPUT
+echo waiting on wpa_supplicant CTRL-EVENT-CONNECTED...
 tail -f $OUTPUT | grep -q "CTRL-EVENT-CONNECTED"
 dhclient
 ping -c 1 -q google.com

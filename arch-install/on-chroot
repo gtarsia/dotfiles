@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+# time
+FILES=$(readlink -f $(dirname $0)/arch-install/files)
+
+ln -sf /usr/share/zoneinfo/Brazil/South /etc/localtime
+hwclock --systohc
+
+ln -sf $FILES/locale.gen /etc/locale.gen
+ln -sf $FILES/locale.conf /etc/locale.conf
+ln -sf $FILES/vconsole.conf /etc/vconsole.conf
+ln -sf $FILES/hostname /etc/hostname
+locale-gen
+
+passwd
+useradd -m -s zsh romigui
+passwd romigui
+pacman -S intel-ucode grub openbox
+
+# Install grub
+```

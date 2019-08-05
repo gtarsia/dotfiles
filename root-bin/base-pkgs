@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+echo installing base packages...
+pacman -S --needed base-devel wget yajl wpa_supplicant dhclient git
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+
+yay -S --noconfirm openssh openvpn alacritty google-chrome dnsmasq xseticon apache-tools light-git nodenv nodenv-node-build-git powertop tlp tmux tmuxinator neovim vim-plug fzf the_silver_searcher

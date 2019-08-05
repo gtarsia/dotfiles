@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+echo installing powerline fonts...
 cd $HOME
 git clone https://github.com/powerline/fonts --depth=1
 cd fonts

@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+echo copying user things from mother...
+cp -R /mother/home/romigui/.ssh $HOME/

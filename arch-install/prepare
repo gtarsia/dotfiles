@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+echo preparing for install...
+bash ../root-bin/mount
+bash ../root-bin/from-mother
+
+bash ../root-bin/wifi
+bash ../root-bin/console
+
+# time
+timedatectl set-ntp true
+
+# mirrorlist
+cp /mother/etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist
