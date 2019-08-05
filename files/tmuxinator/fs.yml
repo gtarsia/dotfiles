@@ -4,9 +4,9 @@ name: <%= @args[0].gsub('.', '') %>
 root: <%= @args[0] %>
 
 windows:
+  - editor: nvim
   - processes:
       layout: 0502,147x37,0,0[147x18,0,0,22,147x18,0,19,24]
       panes:
         - echo
         - echo
-  - editor: nvim

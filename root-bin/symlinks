@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-FILES=$(readlink -f $(dirname $0)/files)
+FILES=$(readlink -f $(dirname $0)/../files)
 
 # zsh
 echo linking .zshrc...

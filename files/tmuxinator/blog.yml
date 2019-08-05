@@ -4,9 +4,9 @@ name: blog
 root: ~/git/blog
 
 windows:
+  - editor: nvim
   - processes:
       layout: 8506,147x37,0,0[147x18,0,0,25,147x18,0,19,27]
       panes:
         - yarn serve
         - echo
-  - editor: nvim

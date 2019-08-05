@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+FILES=$(readlink -f $(dirname $0)/../files)
 echo linking br-nitro5.map.gz...
 ln -sf $FILES/console/br-nitro5.map.gz /usr/share/kbd/keymaps/i386/qwerty/br-nitro5.map.gz
 echo linking /etc/vconsole.conf...

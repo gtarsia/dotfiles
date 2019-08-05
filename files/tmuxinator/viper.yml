@@ -3,6 +3,7 @@
 name: viper
 root: /home/romigui/git/viper/
 windows:
+  - editor: nvim
   - processes:
       panes:
         - dw:
@@ -12,4 +13,3 @@ windows:
           - cd src/viper
           - npm run gulp-watch
         - docker start eager_snyder
-  - editor: nvim

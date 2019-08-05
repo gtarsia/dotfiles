@@ -4,9 +4,9 @@ name: sample
 root: ~/git/sample
 
 windows:
+  - editor: nvim
   - processes:
       layout: 4504,147x37,0,0[147x18,0,0,14,147x18,0,19,16]
       panes:
         - optirun godot -e
         - echo
-  - editor: nvim
