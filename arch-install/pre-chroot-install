@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+if [ "$EUID" -ne 0 ]
+  then echo "Please run as root"
+  exit
+fi
+
+
+PARTITION=$1
+ERR="First argument was '$PARTITION', but should be a valid partition"
+
+if [ -z "$PARTITION" ]; then
+  echo $ERR
+  exit 1
+fi
+
+PARTITION_OK=$(lsblk -l -o NAME -n -z | grep -E '[0-9]' | grep -w $PARTITION)
+if [ -z "$PARTITION_OK" ]; then
+  echo $ERR
+  exit 1
+fi
+PARTITION_OK="/dev/$PARTITION_OK"
+
+fdisk -l | grep $PARTITION
+lsblk | grep $PARTITION
+while true; do
+  read -p "Format and install using $PARTITION_OK? (y/N)" yn
+    case $yn in
+        [Yy]* ) break;;
+        [Nn]* ) exit;;
+        * ) exit;;
+    esac
+done
+
+mkfs.ext4 $PARTITION_OK
+mount $PARTITION_OK /mnt
+pacstrap /mnt base
+genfstab -U /mnt >> /mnt/etc/fstab
+arch-chroot /mnt

@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+OUTPUT=/tmp/wifi_output.txt
+rm -f $OUTPUT
+wpa_supplicant -B -c /.wifi -i wlp2s0 -f $OUTPUT
+tail -f $OUTPUT | grep -q "CTRL-EVENT-CONNECTED"
+dhclient
+ping -c 1 -q google.com

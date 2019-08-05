@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+setfont latarcyrheb-sun3
+
+cp ../br-nitro5.map.gz /usr/share/kbd/keymaps/i386/qwerty/br-nitro5.map.gz
+loadkeys br-nitro5
+
+timedatectl set-ntp true
+timedatectl status
+cp /external/etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist

@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+ln -sf /usr/share/zoneinfo/Brazil/West /etc/localtime
+hwclock --systohc
+
+ln -sf $HOME/dotfiles/config/locale.gen /etc/locale.gen
+ln -sf $HOME/dotfiles/config/locale.conf /etc/locale.conf
+ln -sf $HOME/dotfiles/config/vconsole.conf /etc/vconsole.conf
+ln -sf $HOME/dotfiles/config/hostname /etc/hostname
+
+locale-gen
+passwd
+useradd -m -s zsh romigui
+passwd romigui
+pacman -S intel-ucode grub openbox
+# Install grub
+```
