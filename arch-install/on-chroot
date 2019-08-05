@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 
 # time
-FILES=$(readlink -f $(dirname $0)/arch-install/files)
+FILES=$(readlink -f $(dirname $0)/files)
 
-ln -sf /usr/share/zoneinfo/Brazil/South /etc/localtime
+echo "setting up time and /etc files"
+ln -sf /usr/share/zoneinfo/Brazil/West /etc/localtime
 hwclock --systohc
 
 ln -sf $FILES/locale.gen /etc/locale.gen
@@ -12,10 +13,16 @@ ln -sf $FILES/vconsole.conf /etc/vconsole.conf
 ln -sf $FILES/hostname /etc/hostname
 locale-gen
 
-passwd
-useradd -m -s zsh romigui
-passwd romigui
-pacman -S intel-ucode grub openbox
+pacman -S intel-ucode efibootmgr grub openbox zsh
 
-# Install grub
-```
+echo "requesting password for root..."
+passwd
+useradd -m -s /bin/zsh romigui
+echo "requesting password for romigui..."
+passwd romigui
+
+echo "configuring grub..."
+mkdir -p /esp
+mount /dev/sda1 /esp
+grub-install --target=x86_64-efi --efi-directory=/esp --bootloader-id="Awesome arch"
+grub-mkconfig -o /boot/grub/grub.cfg

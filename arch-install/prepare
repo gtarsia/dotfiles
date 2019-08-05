@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
 
 echo preparing for install...
-bash ../root-bin/mount
 bash ../root-bin/from-mother
-
 bash ../root-bin/wifi
 bash ../root-bin/console
 
