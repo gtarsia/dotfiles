@@ -1,0 +1,33 @@
+#!/usr/bin/bash
+FILES=$(readlink -f $(dirname $0)/files)
+echo $FILES
+
+# alacritty
+echo linking .alacritty.yml...
+ln -sf $FILES/alacritty/.alacritty.yml $HOME/.alacritty.yml
+
+# zsh
+echo linking .zshrc...
+ln -sf $FILES/zsh/.zshrc $HOME/.zshrc
+touch $HOME/.zshenv
+
+# vim
+mkdir -p $HOME/.config/nvim
+echo linking .vimrc...
+ln -sf $FILES/vim/.vimrc $HOME/.config/nvim/init.vim
+ln -sf $FILES/vim/.vimrc $HOME/.vimrc
+
+# tmux
+echo linking .tmux.conf...
+ln -sf $FILES/tmux/.tmux.conf $HOME/.tmux.conf
+mkdir -p $HOME/.tmux
+echo linking .tmux/resurrect...
+ln -sf $FILES/tmux-resurrect $HOME/.tmux/resurrect
+echo linking .config/tmuxinator...
+ln -sf $FILES/tmuxinator $HOME/.config/tmuxinator
+
+# autostart
+echo linking .config/autostart/boot...
+mkdir -p $HOME/.config/autostart
+cp -f $FILES/autostart/boot.desktop $HOME/.config/autostart/boot.desktop
+cp -f $FILES/autostart/boot.zsh $HOME/.config/autostart/boot.zsh
