@@ -4,4 +4,3 @@ echo configuring power saving...
 powertop --auto-tune
 systemctl enable --now tlp.service
 systemctl enable --now tlp-sleep.service
-powertop tlp

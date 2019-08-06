@@ -28,9 +28,12 @@ echo linking .config/tmuxinator...
 ln -sf $FILES/tmuxinator $HOME/.config/tmuxinator
 
 # autostart
-echo linking .config/autostart/boot...
+echo copying .config/autostart/boot...
 mkdir -p $HOME/.config/autostart
 cp -f $FILES/autostart/boot.desktop $HOME/.config/autostart/boot.desktop
 cp -f $FILES/autostart/boot.zsh $HOME/.config/autostart/boot.zsh
+
+echo linking openbox...
+ln -sf $FILES/openbox $HOME/.config/openbox
 
 echo symlinks complete!

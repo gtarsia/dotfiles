@@ -13,7 +13,7 @@ ln -sf $FILES/vconsole.conf /etc/vconsole.conf
 ln -sf $FILES/hostname /etc/hostname
 locale-gen
 
-pacman -S intel-ucode efibootmgr grub openbox zsh sudo
+pacman -S intel-ucode efibootmgr grub openbox zsh sudo wpa_supplicant dhclient
 
 echo "requesting password for root..."
 passwd
@@ -21,6 +21,7 @@ useradd -m -s /bin/zsh romigui
 echo "requesting password for romigui..."
 passwd romigui
 mv /home/dotfiles/ /home/romigui/dotfiles
+cd /home/romigui/dotfiles && chown -R romigui:romigui .
 
 echo "adding romigui to sudoers..."
 echo "romigui ALL=(ALL) ALL" > /etc/sudoers
@@ -30,5 +31,3 @@ mkdir -p /esp
 mount /dev/sda1 /esp
 grub-install --target=x86_64-efi --efi-directory=/esp --bootloader-id="Awesome arch"
 grub-mkconfig -o /boot/grub/grub.cfg
-
-bash /home/romigui/dotfiles/root-full

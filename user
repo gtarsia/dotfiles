@@ -1,12 +1,14 @@
 #!/usr/bin/env bash
 
-# essentials
+bash ./user-bin/yay
+bash ./user-bin/base-pkgs
+bash ./user-bin/extra-pkgs
 bash ./user-bin/from-mother
 bash ./user-bin/git
 bash ./user-bin/power
 bash ./user-bin/powerline
 bash ./user-bin/tmux
-bash ./user-bin/vim
+bash ./user-bin/nvim
 bash ./user-bin/zsh
 
 bash ./user-bin/symlinks

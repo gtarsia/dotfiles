@@ -2,3 +2,5 @@
 
 echo copying user things from mother...
 cp -R /mother/home/romigui/.ssh $HOME/
+cp /mother/home/romigui/.zsh_history $HOME/
+ln -sf /git-owner/home/romigui/git $HOME/git

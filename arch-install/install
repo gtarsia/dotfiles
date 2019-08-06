@@ -38,5 +38,4 @@ pacstrap /mnt base
 genfstab -U /mnt >> /mnt/etc/fstab
 mkdir -p /home
 cp -R /mother/home/romigui/dotfiles /mnt/home/
-cd /mnt/home/dotfiles && chown -R romigui:romigui .
 arch-chroot /mnt

@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+echo installing user extra packages...
+yay -S --noconfirm freerdp-git slack-desktop discord franz-bin godot apache-tools
