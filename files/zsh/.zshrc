@@ -111,7 +111,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
-alias vim=nvim
+alias mw="sudo bash /home/romigui/dotfiles/mount+wifi"
 
 # archlinux
    alias yas='yaourt -S'

@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+FILES=$(readlink -f $(dirname $0))
+
+bash $FILES/root-bin/mount
+bash $FILES/root-bin/wifi

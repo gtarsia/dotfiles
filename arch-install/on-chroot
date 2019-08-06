@@ -13,7 +13,7 @@ ln -sf $FILES/vconsole.conf /etc/vconsole.conf
 ln -sf $FILES/hostname /etc/hostname
 locale-gen
 
-pacman -S intel-ucode efibootmgr grub openbox zsh sudo wpa_supplicant dhclient
+pacman -S intel-ucode efibootmgr grub openbox python2-xdg zsh sudo wpa_supplicant dhclient
 
 echo "requesting password for root..."
 passwd

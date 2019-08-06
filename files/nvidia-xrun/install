@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+FILES=$(readlink -f $(dirname $0))
+ln -sf $FILES/.xinitrc /home/romigui/.xinitrc
+ln -sf $FILES/nvidia-drm.conf /etc/modprobe.d/nvidia-drm.conf
