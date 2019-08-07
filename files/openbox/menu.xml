@@ -119,6 +119,15 @@
       </startupnotify>
     </action>
   </item>
+  <item label="Slack">
+    <action name="Execute">
+      <command>slack</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+        <wmclass>Slack</wmclass>
+      </startupnotify>
+    </action>
+  </item>
   <item label="Opera">
     <action name="Execute">
       <command>opera</command>

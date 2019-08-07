@@ -45,6 +45,7 @@ Plug 'wavded/vim-stylus'
 Plug 'whatyouhide/vim-textobj-erb'
 call plug#end()
 
+set clipboard=unnamed
 " relative number and line endings
 set nu relativenumber
 if has('nvim')

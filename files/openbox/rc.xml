@@ -333,11 +333,14 @@
        <command>amixer set Master 3%+</command>
      </action>
   </keybind>
-   <keybind key="XF86AudioLowerVolume">
-     <action name="Execute">
-       <command>amixer set Master 3%-</command>
-     </action>
-   </keybind>
+  <keybind key="XF86AudioLowerVolume">
+    <action name="Execute">
+      <command>amixer set Master 3%-</command>
+    </action>
+  </keybind>
+  <keybind key="W-r">
+    <action name="Execute"><command>openbox --reconfigure</command></action>
+  </keybind>
 </keyboard>
 
 <mouse>
