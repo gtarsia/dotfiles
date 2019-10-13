@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+cp /mother/etc/dnsmasq.conf /etc/dnsmasq.conf
+systemctl enable --now dnsmasq.service

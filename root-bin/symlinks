@@ -11,3 +11,4 @@ touch /root/.zshenv
 echo linking .zshrc...
 mkdir -p /root/.config/nvim
 ln -sf $FILES/vim/.vimrc /root/.config/nvim/init.vim
+ln -sf $FILES/vim/templates /root/.vim/templates

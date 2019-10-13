@@ -110,7 +110,7 @@
 </menu>
 
 <menu id="apps-net-menu" label="Internet">
-  <item label="Chrome">
+  <item id="chrome" label="Chrome">
     <action name="Execute">
       <command>google-chrome-stable</command>
       <startupnotify>
@@ -125,6 +125,15 @@
       <startupnotify>
         <enabled>yes</enabled>
         <wmclass>Slack</wmclass>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="Franz">
+    <action name="Execute">
+      <command>franz</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+        <wmclass>franz</wmclass>
       </startupnotify>
     </action>
   </item>
@@ -314,7 +323,7 @@
       </startupnotify>
     </action>
   </item>
-  <item label="Gwenview">
+  <item label="Aseprite">
     <action name="Execute">
       <command>gwenview</command>
       <startupnotify>
@@ -381,15 +390,64 @@
 </menu>
 
 <menu id="root-menu" label="Openbox 3">
-  <separator label="Applications" />
-  <menu id="apps-accessories-menu"/>
-  <menu id="apps-editors-menu"/>
-  <menu id="apps-graphics-menu"/>
-  <menu id="apps-net-menu"/>
-  <menu id="apps-office-menu"/>
-  <menu id="apps-multimedia-menu"/>
-  <menu id="apps-term-menu"/>
-  <menu id="apps-fileman-menu"/>
+  <separator label="System" />
+  <item label="Alacritty">
+    <action name="Execute">
+      <command>alacritty</command>
+    </action>
+  </item>
+  <item label="Aseprite">
+    <action name="Execute">
+      <command>aseprite</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="Gimp">
+    <action name="Execute">
+      <command>gimp</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="Thunar">
+    <action name="Execute">
+      <command>Thunar</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+  <separator label="Internet" />
+  <item label="Chrome">
+    <action name="Execute">
+      <command>google-chrome-stable</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+        <wmclass>Chrome</wmclass>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="Slack">
+    <action name="Execute">
+      <command>slack</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+        <wmclass>Slack</wmclass>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="Franz">
+    <action name="Execute">
+      <command>franz</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+        <wmclass>franz</wmclass>
+      </startupnotify>
+    </action>
+  </item>
   <separator label="System" />
   <menu id="system-menu"/>
   <separator />

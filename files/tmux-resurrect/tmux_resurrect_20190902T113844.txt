@@ -1,0 +1,20 @@
+pane	0notes	1	:notes	1	:*	0	:/home/romigui	1	nvim	:nvim questions-and-notes.md
+pane	0notes	2	:tasks	0	:-	0	:/home/romigui	1	nvim	:nvim tasks.md
+pane	1vpn	1	:nvim	1	:*	0	:/home/romigui	0	zsh	:
+pane	1vpn	1	:nvim	1	:*	1	:/home/romigui	1	nvim	:nvim /etc/resolv.conf
+pane	2run	1	:process	0	:-	0	:/home/romigui	1	zsh	:
+pane	2run	2	:server	1	:*	0	:/home/romigui	1	zsh	:
+pane	2run	2	:server	1	:*	1	:/home/romigui	0	zsh	:
+pane	me	1	:editor	1	:*	0	:/home/romigui	1	nvim	:nvim
+pane	me	1	:editor	1	:*	1	:/home/romigui	0	zsh	:
+pane	me	2	:processes	0	:-	0	:/home/romigui	1	zsh	:
+pane	me	2	:processes	0	:-	1	:/home/romigui	0	zsh	:
+pane	me	2	:processes	0	:-	2	:/home/romigui	0	zsh	:
+window	0notes	1	1	:*	c0bd,137x35,0,0,0
+window	0notes	2	0	:-	c0be,137x35,0,0,1
+window	1vpn	1	1	:*	8267,137x35,0,0{68x35,0,0,24,68x35,69,0,25}
+window	2run	1	0	:-	c0c3,137x35,0,0,6
+window	2run	2	1	:*	d5c3,137x35,0,0{68x35,0,0,7,68x35,69,0,8}
+window	me	1	1	:*	97c3,137x35,0,0[137x7,0,0,9,137x27,0,8,10]
+window	me	2	0	:-	4e79,137x35,0,0[137x5,0,0,11,137x5,0,6,12,137x23,0,12,13]
+state	1vpn	2run

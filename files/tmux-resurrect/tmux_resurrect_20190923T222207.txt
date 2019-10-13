@@ -1,0 +1,20 @@
+pane	0tasks	1	:editor	1	:*	0	:/home/romigui/tasks	1	nvim	:nvim
+pane	0tasks	2	:processes	0	:-	0	:/home/romigui	1	zsh	:
+pane	0tasks	2	:processes	0	:-	1	:/home/romigui	0	zsh	:
+pane	1vpn	1	:nvim	1	:*	0	:/home/romigui	1	zsh	:
+pane	1vpn	1	:nvim	1	:*	1	:/home/romigui	0	zsh	:
+pane	2run	1	:process	0	:-	0	:/home/romigui	1	zsh	:
+pane	2run	1	:process	0	:-	1	:/home/romigui	0	zsh	:
+pane	2run	2	:server	1	:*	0	:/home/romigui	0	zsh	:
+pane	2run	2	:server	1	:*	1	:/home/romigui	1	zsh	:
+pane	me	1	:editor	0	:-	0	:/home/romigui/notes	1	nvim	:nvim
+pane	me	2	:processes	1	:*	0	:/home/romigui/notes	0	zsh	:
+pane	me	2	:processes	1	:*	1	:/home/romigui/notes	1	zsh	:
+window	0tasks	1	1	:*	cd7d,102x39,0,0,0
+window	0tasks	2	0	:-	cbe9,102x39,0,0[102x9,0,0,1,102x29,0,10,2]
+window	1vpn	1	1	:*	ffda,102x39,0,0[102x19,0,0,3,102x19,0,20,4]
+window	2run	1	0	:-	ffdf,102x39,0,0[102x19,0,0,5,102x19,0,20,6]
+window	2run	2	1	:*	e365,102x39,0,0[102x14,0,0,7,102x24,0,15,9]
+window	me	1	0	:-	66ef,102x39,0,0,10
+window	me	2	1	:*	054f,102x39,0,0[102x19,0,0,11,102x19,0,20,12]
+state	2run	0tasks

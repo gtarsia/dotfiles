@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+xrandr --newmode "1920x1080"x60.0  138.70  1920 1968 2000 2080 10 80 1083 1088 1111 +hsync -vsync
+xrandr --addmode eDP-1-1 "1920x1080"x60.0
+xrandr --output eDP-1-1 --dpi 110 --mode 1920x1080x60.0
+

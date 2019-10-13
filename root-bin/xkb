@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+sudo xkbcomp -w 0 /home/romigui/dotfiles/files/xkb/.xkbmap $DISPLAY

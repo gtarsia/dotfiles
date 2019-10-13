@@ -1,0 +1,15 @@
+# ~/.tmuxinator/sample.yml
+
+name: search
+root: ~/git/search
+
+windows:
+  - processes:
+      layout: ae3a,137x35,0,0[137x11,0,0{68x11,0,0,19,68x11,69,0,21},137x11,0,12{68x11,0,12,26,68x11,69,12,20},137x11,0,24,22]
+      panes:
+        - cd server && yarn esw
+        - cd server && npm run start
+        - echo
+        - cd web && yarn serve
+        - echo
+  - editor: nvim

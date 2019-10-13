@@ -23,6 +23,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'kana/vim-arpeggio'
 Plug 'kana/vim-textobj-user'
 Plug 'lambdalisue/suda.vim'
+Plug 'leafgarland/typescript-vim'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'pangloss/vim-javascript'
@@ -30,6 +31,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'plasticboy/vim-markdown'
 Plug 'posva/vim-vue'
 Plug 'rcarraretto/vim-surround', { 'branch': 'test' }
+Plug 'rust-lang/rust.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
@@ -260,16 +262,23 @@ augroup filetype_yaml
 augroup END
 
 " skeletons
-function! GuidoTemplate(ext)
+function! VueTemplate()
   if (line('$') == 1 && getline(1) == '')
-    execute '0r ~/.vim/templates/skeleton.' . a:ext
+    execute '0r ~/.vim/templates/vue-template.vue'
     normal Gddgg
+  end
+endfunction
+function! AvaTestTemplate()
+  if (line('$') == 1 && getline(1) == '')
+    execute '0r ~/.vim/templates/ava-template.test.js'
+    normal Gddggjjf'
   end
 endfunction
 
 if has("autocmd")
   augroup templates
-    autocmd BufNewFile,BufReadPost *.vue call GuidoTemplate('vue')
+    autocmd BufNewFile,BufReadPost *.vue call VueTemplate()
+    autocmd BufNewFile,BufReadPost *.test.js call AvaTestTemplate()
   augroup END
 endif
 

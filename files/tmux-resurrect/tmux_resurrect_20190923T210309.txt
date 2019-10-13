@@ -1,0 +1,21 @@
+pane	0tasks	1	:editor	1	:*	0	:/home/romigui/tasks	1	nvim	:nvim
+pane	0tasks	2	:processes	0	:-	0	:/home/romigui	1	zsh	:
+pane	0tasks	2	:processes	0	:-	1	:/home/romigui	0	zsh	:
+pane	1vpn	1	:nvim	1	:*	0	:/home/romigui	1	zsh	:
+pane	1vpn	1	:nvim	1	:*	1	:/home/romigui	0	zsh	:
+pane	2run	1	:process	0	:-	0	:/home/romigui	1	zsh	:
+pane	2run	1	:process	0	:-	1	:/home/romigui	0	zsh	:
+pane	2run	2	:server	1	:*	0	:/home/romigui	0	zsh	:
+pane	2run	2	:server	1	:*	1	:/home/romigui	1	qbittorrent	:qbittorrent
+pane	2run	2	:server	1	:*	2	:/home/romigui	0	zsh	:
+pane	me	1	:editor	0	:-	0	:/home/romigui/notes	1	nvim	:nvim
+pane	me	2	:processes	1	:*	0	:/home/romigui/notes	0	zsh	:
+pane	me	2	:processes	1	:*	1	:/home/romigui/notes	1	zsh	:
+window	0tasks	1	1	:*	c0bd,137x35,0,0,0
+window	0tasks	2	0	:-	2edf,137x35,0,0[137x7,0,0,2,137x27,0,8,3]
+window	1vpn	1	1	:*	352b,137x35,0,0[137x17,0,0,4,137x17,0,18,5]
+window	2run	1	0	:-	3530,137x35,0,0[137x17,0,0,6,137x17,0,18,7]
+window	2run	2	1	:*	0dbc,137x35,0,0[137x5,0,0,8,137x5,0,6,9,137x23,0,12,10]
+window	me	1	0	:-	6090,137x35,0,0,11
+window	me	2	1	:*	ae59,137x35,0,0[137x17,0,0,13,137x17,0,18,14]
+state	0tasks	me

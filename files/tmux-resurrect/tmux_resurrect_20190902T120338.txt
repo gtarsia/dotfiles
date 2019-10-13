@@ -1,0 +1,28 @@
+pane	0notes	1	:editor	1	:*	0	:/home/romigui	1	nvim	:nvim questions-and-notes.md
+pane	0notes	2	:processes	0	:-	0	:/home/romigui	1	nvim	:nvim tasks.md
+pane	1vpn	1	:nvim	1	:*	0	:/home/romigui	1	zsh	:
+pane	1vpn	1	:nvim	1	:*	1	:/home/romigui	0	nvim	:nvim /etc/resolv.conf
+pane	2run	1	:process	0	:-	0	:/home/romigui	1	zsh	:
+pane	2run	2	:server	1	:*	0	:/home/romigui/.config/autostart	1	zsh	:
+pane	2run	2	:server	1	:*	1	:/home/romigui	0	zsh	:
+pane	blue-autopair	1	:editor	0	:-	0	:/git-owner/home/romigui/git/blue-autopair	1	nvim	:nvim
+pane	blue-autopair	2	:processes	1	:*	0	:/git-owner/home/romigui/git/blue-autopair	1	zsh	:
+pane	blue-autopair	2	:processes	1	:*	1	:/git-owner/home/romigui/git/blue-autopair	0	zsh	:
+pane	dotfiles	1	:editor	0	:-	0	:/home/romigui/dotfiles	1	nvim	:nvim
+pane	dotfiles	2	:processes	1	:*	0	:/home/romigui/dotfiles	1	zsh	:
+pane	dotfiles	2	:processes	1	:*	1	:/home/romigui/dotfiles	0	zsh	:
+pane	me	1	:editor	1	:*	0	:/home/romigui	1	nvim	:nvim
+pane	me	2	:processes	0	:-	0	:/home/romigui	0	zsh	:
+pane	me	2	:processes	0	:-	1	:/home/romigui	1	zsh	:
+window	0notes	1	1	:*	c0bd,137x35,0,0,0
+window	0notes	2	0	:-	c0be,137x35,0,0,1
+window	1vpn	1	1	:*	54ad,137x35,0,0{68x35,0,0,2,68x35,69,0,3}
+window	2run	1	0	:-	c0c1,137x35,0,0,4
+window	2run	2	1	:*	d5ba,137x35,0,0{68x35,0,0,5,68x35,69,0,6}
+window	blue-autopair	1	0	:-	6093,137x35,0,0,14
+window	blue-autopair	2	1	:*	ae5c,137x35,0,0[137x17,0,0,15,137x17,0,18,16]
+window	dotfiles	1	0	:-	6090,137x35,0,0,11
+window	dotfiles	2	1	:*	2e58,137x35,0,0[137x17,0,0,12,137x17,0,18,13]
+window	me	1	1	:*	c0c4,137x35,0,0,7
+window	me	2	0	:-	ab3a,137x35,0,0{68x35,0,0,9,68x35,69,0,10}
+state	me	blue-autopair

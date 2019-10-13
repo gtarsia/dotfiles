@@ -1,6 +1,0 @@
-pane	1config	1	:config	1	:*	0	:/home/romigui	1	nvim	:nvim -p .vimrc .zshrc /home/romigui/.zshenv .tmux.conf /home/romigui/.xinitrc /home/romigui/.profile /home/romigui/git/dotfiles/.xkbmap /etc/nginx/nginx.conf .config/alacritty/alacritty.yml /etc/hosts vpn/gecko.ovpn /etc/pacman.conf
-pane	1config	2	:openvpn	0	:-	0	:/home/romigui	0	sudo	:sudo openvpn --config /home/romigui/vpn/new.ovpn
-pane	1config	2	:openvpn	0	:-	1	:/home/romigui	1	nvim	:nvim /etc/resolv.conf
-window	1config	1	1	:*	5e5a,136x34,0,0,97
-window	1config	2	0	:-	d416,136x34,0,0[136x16,0,0,98,136x17,0,17,99]
-state	1config	

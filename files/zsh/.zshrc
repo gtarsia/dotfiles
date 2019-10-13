@@ -112,6 +112,9 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 alias mw="sudo bash /home/romigui/dotfiles/mount+wifi"
+alias hw="sudo bash /home/romigui/dotfiles/root-bin/wifi /.wifi"
+alias pw="sudo bash /home/romigui/dotfiles/root-bin/wifi /.phone-wifi"
+alias game="sudo bash /home/romigui/dotfiles/root-bin/game"
 
 # archlinux
    alias yas='yaourt -S'
@@ -164,11 +167,12 @@ unalias rt
 
 # misc
 alias hotdog='open https://appear.in/superfluous-hotdog'
-alias k9='kill -9'
+alias k9='sudo kill -9'
 
 # unalias annoying zsh grep
 unalias grep
 alias ggrep='\grep  --color=auto --exclude-dir=.bzr --exclude-dir=CVS --exclude-dir=.git --exclude-dir=.hg --exclude-dir=.svn'
+alias pg='ps -ax | grep'
 
 # User configuration
 #
@@ -185,12 +189,19 @@ alias nexp='node --experimental-repl-await'
 
 # tmuxinator
 alias tm='tmuxinator'
+alias tmd='tmuxinator s dotfiles'
 alias tmn='tmuxinator n'
 alias tms='tmuxinator s'
 alias tmg='tmuxinator s git'
 alias tme='tmuxinator e'
 alias tmf='tmuxinator s fs'
 alias tmm='tmuxinator s me'
+
+alias ↑↑↓↓←←→→BA='echo "Secret powers unlocked!"'
+
+alias yt='yarn test:watch'
+alias ye='yarn esw'
+
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -217,6 +228,7 @@ alias tmm='tmuxinator s me'
 alias runresurrect="while ! tmux run-shell ~/.tmux/plugins/tmux-resurrect/scripts/restore.sh; do sleep 0.2; done"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 export PATH="$HOME/.yarn/bin:$PATH"
@@ -226,6 +238,13 @@ function github() {
   arr=("${(@s./.)1}")
   repo=$HOME/git/${arr[2]}
   git clone git@github.com:$1 $repo
+  tmuxinator s git ${arr[2]}
+}
+
+function fitgit() {
+  arr=("${(@s./.)1}")
+  repo=$HOME/git/${arr[2]}
+  git clone git@git.thegeck.com:$1 $repo
   tmuxinator s git ${arr[2]}
 }
 

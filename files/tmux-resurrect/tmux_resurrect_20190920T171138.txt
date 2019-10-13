@@ -1,0 +1,19 @@
+pane	0tasks	1	:editor	1	:*	0	:/home/romigui/tasks	1	nvim	:nvim
+pane	0tasks	2	:processes	0	:-	0	:/home/romigui/notes\ (deleted)	1	zsh	:
+pane	1vpn	1	:nvim	1	:*	0	:/home/romigui	1	zsh	:
+pane	1vpn	1	:nvim	1	:*	1	:/home/romigui	0	nvim	:nvim /etc/resolv.conf
+pane	2run	1	:process	0	:-	0	:/home/romigui	1	zsh	:
+pane	2run	1	:process	0	:-	1	:/home/romigui	0	zsh	:
+pane	2run	2	:server	1	:*	0	:/home/romigui	0	zsh	:
+pane	2run	2	:server	1	:*	1	:/home/romigui	1	zsh	:
+pane	me	1	:editor	1	:*	0	:/home/romigui/notes	1	nvim	:nvim
+pane	me	2	:processes	0	:-	0	:/home/romigui/notes	0	zsh	:
+pane	me	2	:processes	0	:-	1	:/home/romigui/notes	1	zsh	:
+window	0tasks	1	1	:*	c0bd,137x35,0,0,0
+window	0tasks	2	0	:-	c0be,137x35,0,0,1
+window	1vpn	1	1	:*	9adc,137x35,0,0[137x17,0,0,3,137x17,0,18,15]
+window	2run	1	0	:-	3530,137x35,0,0[137x17,0,0,6,137x17,0,18,7]
+window	2run	2	1	:*	1ae0,137x35,0,0[137x17,0,0,9,137x17,0,18,10]
+window	me	1	1	:*	6090,137x35,0,0,11
+window	me	2	0	:-	ae5b,137x35,0,0[137x17,0,0,14,137x17,0,18,16]
+state	2run	

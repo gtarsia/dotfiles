@@ -13,9 +13,11 @@ touch $HOME/.zshenv
 
 # vim
 mkdir -p $HOME/.config/nvim
+mkdir -p $HOME/.vim/templates
 echo linking .vimrc...
 ln -sf $FILES/vim/.vimrc $HOME/.config/nvim/init.vim
 ln -sf $FILES/vim/.vimrc $HOME/.vimrc
+ln -sf $FILES/vim/templates $HOME/.vim/templates
 
 # tmux
 echo linking .tmux.conf...

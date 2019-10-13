@@ -12,4 +12,4 @@ windows:
         - gw:
           - cd src/viper
           - npm run gulp-watch
-        - docker start eager_snyder
+        - sudo systemctl start docker redis && sudo docker start eager_snyder
