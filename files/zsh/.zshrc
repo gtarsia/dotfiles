@@ -4,13 +4,20 @@
 # Path to your oh-my-zsh installation.
 export ZSH="/home/romigui/.oh-my-zsh"
 source ~/.zshenv
+source $HOME/.cargo/env
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
+unsetopt nomatch
+precmd() { print "\n" }
 
 export FZF_DEFAULT_OPTS="--history=$HOME/.fzf_history"
 export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="$HOME/.rbenv/shims:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/gitGdotfiles/bin:$PATH"
-
+export GOPATH="$HOME/go"
+export PATH="$GOPATH/bin:$PATH"
 setopt HIST_IGNORE_ALL_DUPS
 #
 # You may need to manually set your language environment
@@ -19,6 +26,7 @@ export LC_CTYPE=en_US.UTF-8
 export EDITOR=nvim
 # Compilation flags
 export ARCHFLAGS="-arch x86_64"
+export ERL_AFLAGS="-kernel shell_history enabled"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -86,6 +94,8 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   archlinux
+  buffalo
+  cargo
   docker-compose
   git
   globalias
@@ -120,6 +130,14 @@ alias game="sudo bash /home/romigui/dotfiles/root-bin/game"
    alias yas='yaourt -S'
   alias yasn='yaourt -S --noconfirm'
 
+# buffalo
+  alias bd='buffalo dev'
+  alias bg='buffalo generate'
+  alias bp='buffalo pop'
+ alias bpm='buffalo pop migrate'
+
+ alias cl='ceedling'
+
 # My aliases
 # git /\(unalias\|alias\) 
   alias ga.='git add .'
@@ -144,6 +162,8 @@ unalias grh
   alias gpg='git push guido'
 
 # docker-compose
+  alias cb='cargo build'
+  alias cr='cargo run'
 
 unalias dcup
   alias dcu='docker-compose up'
@@ -151,10 +171,13 @@ unalias dcup
 unalias dcdn
   alias dcd='docker-compose down'
 
+  alias mk='make'
+
 # rails
 unalias rake
   alias ba='bundle add'
 unalias rails
+alias rc='rails console'
 alias rdcm='rake db:drop db:create db:migrate'
 alias rdcms='rake db:drop db:create db:migrate db:seed'
 alias rdrs='rake db:reset db:seed'
@@ -164,6 +187,8 @@ alias rgsc='rails generate scaffold_controller'
  alias rrs='rails restart'
 unalias rt
   alias rt='rails test'
+
+  alias zr='zig run'
 
 # misc
 alias hotdog='open https://appear.in/superfluous-hotdog'

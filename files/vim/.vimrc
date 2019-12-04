@@ -12,10 +12,12 @@ Plug 'calviken/vim-gdscript3'
 " Plug 'jceb/vim-orgmode'
 " Plug 'kchmck/vim-coffee-script'
 " Plug 'mtscout6/vim-cjsx', {'for': 'coffee'}
-
 Plug '/usr/local/opt/fzf'
+Plug 'glacambre/firenvim'
+Plug 'burner/vim-svelte'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'dracula/vim'
+Plug 'elixir-editors/vim-elixir'
 Plug 'EvanDotPro/nerdtree-symlink'
 Plug 'godlygeek/tabular'
 Plug 'heavenshell/vim-jsdoc'
@@ -41,10 +43,12 @@ Plug 'tpope/vim-rails'
 Plug 'tpope/vim-scriptease'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-scripts/headerguard'
 Plug 'vim-scripts/openvpn'
 Plug 'vim-ruby/vim-ruby'
 Plug 'wavded/vim-stylus'
 Plug 'whatyouhide/vim-textobj-erb'
+Plug 'ziglang/zig.vim'
 call plug#end()
 
 set clipboard=unnamed
@@ -54,6 +58,7 @@ if has('nvim')
   set listchars=tab:▸\ ,eol:¬
 endif
 
+let NERDTreeChDirMode=2
 
 " leader maps
 "" I map it this view so I can see what I'm typing in the showcmd corner 
