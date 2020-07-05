@@ -34,7 +34,7 @@ done
 
 mkfs.ext4 $PARTITION_OK
 mount $PARTITION_OK /mnt
-pacstrap /mnt base
+pacstrap /mnt base linux linux-firmware
 genfstab -U /mnt >> /mnt/etc/fstab
 mkdir -p /home
 cp -R /mother/home/romigui/dotfiles /mnt/home/

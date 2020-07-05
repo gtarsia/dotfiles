@@ -3,6 +3,6 @@
 echo mounting required partitions...
 mkdir /mother
 mkdir /git-owner
-mount /dev/sda7 /mother
+mount /dev/sda6 /mother
 mount /dev/sda6 /git-owner
 

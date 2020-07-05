@@ -28,6 +28,6 @@ echo "romigui ALL=(ALL) ALL" > /etc/sudoers
 
 echo "configuring grub..."
 mkdir -p /esp
-mount /dev/sda1 /esp
+mount /dev/sda2 /esp
 grub-install --target=x86_64-efi --efi-directory=/esp --bootloader-id="Awesome arch"
 grub-mkconfig -o /boot/grub/grub.cfg

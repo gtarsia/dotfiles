@@ -1,19 +1,9 @@
 <template>
   <div>
-    Skeleton
   </div>
 </template>
 <script>
-// import comp from './comp.vue'
+import setup from './setup'
 
-export default {
-  components: {
-  },
-  data() {
-    return {
-    }
-  },
-  props: {
-  },
-}
+export default { setup }
 </script>

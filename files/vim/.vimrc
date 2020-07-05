@@ -12,12 +12,13 @@ Plug 'calviken/vim-gdscript3'
 " Plug 'jceb/vim-orgmode'
 " Plug 'kchmck/vim-coffee-script'
 " Plug 'mtscout6/vim-cjsx', {'for': 'coffee'}
+Plug 'chr4/nginx.vim'
 Plug '/usr/local/opt/fzf'
 Plug 'glacambre/firenvim'
-Plug 'burner/vim-svelte'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'dracula/vim'
 Plug 'elixir-editors/vim-elixir'
+Plug 'evanleck/vim-svelte'
 Plug 'EvanDotPro/nerdtree-symlink'
 Plug 'godlygeek/tabular'
 Plug 'heavenshell/vim-jsdoc'
@@ -70,9 +71,8 @@ nnoremap <leader>ff :!npx eslint --fix %<cr>
 nnoremap <leader>fi :Files<cr>
 nnoremap <leader>fs :w<cr>
 nnoremap <leader>fas :w suda://%<cr>
-nnoremap <leader>gs :Gstatus<cr>
-vnoremap <leader>gr :Gread<cr>
-vnoremap <leader>gw :Gwrite<cr>
+nnoremap <leader>gf :!codini wf 
+nnoremap <leader>go :read !codini wo 
 nnoremap <leader>hi :History<cr>
 nnoremap <leader>nf :NERDTreeFind<CR>
 nmap <leader>nn jVai:NR!<cr>
@@ -82,6 +82,7 @@ vnoremap <leader>p "_dP
 nnoremap <leader>qa :qa<cr>
 nnoremap <leader>qf :q!<cr>
 nnoremap <leader>qq :q<cr>
+nnoremap <leader>r :!
 nnoremap <leader>sp :PlugInstall!<cr>
 nnoremap <leader>so :so $MYVIMRC<cr>
 nnoremap <leader>ss /
@@ -129,8 +130,8 @@ nnoremap <CR> :noh<CR><CR>
 set expandtab
 set tabstop=2
 set shiftwidth=2
-autocmd FileType java setlocal shiftwidth=2 tabstop=2
-autocmd FileType cs setlocal shiftwidth=4 tabstop=4
+autocmd BufRead,BufNewFile java setlocal shiftwidth=2 tabstop=2
+autocmd BufRead,BufNewFile *.cs,*.cshtml setlocal shiftwidth=4 tabstop=4
 
 
 " wrap with arrows and newlines
@@ -255,6 +256,8 @@ set nofoldenable
 " narrow region bindings
 set hidden
 
+" to make parcel work
+set backupcopy=yes
 
 " yml
 augroup filetype_yaml

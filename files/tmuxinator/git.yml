@@ -6,7 +6,9 @@ root: ~/git/<%= @args[0] %>
 windows:
   - editor: nvim
   - processes:
-      layout: 0502,147x37,0,0[147x18,0,0,22,147x18,0,19,24]
+      layout: 687c,137x35,0,0[137x17,0,0{68x17,0,0,35,68x17,69,0,37},137x17,0,18{68x17,0,18,38,68x17,69,18,36}]
       panes:
+        - echo
+        - echo
         - echo
         - echo

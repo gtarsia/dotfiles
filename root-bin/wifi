@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 DEFAULT_PASSPHRASE=/.wifi
-PASSPHRASE=${1:-DEFAULT_PASSPHRASE}
+PASSPHRASE=/.kyokai-wifi
 killall wpa_supplicant
 echo connecting wifi...
 OUTPUT=/tmp/wifi_output.txt

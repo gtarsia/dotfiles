@@ -2,6 +2,8 @@
 
 FILES=$(readlink -f $(dirname $0)/../files)
 
+ln -sf $FILES/.Xresources $HOME/.Xresources
+
 # alacritty
 echo linking .alacritty.yml...
 ln -sf $FILES/alacritty/.alacritty.yml $HOME/.alacritty.yml
@@ -13,11 +15,10 @@ touch $HOME/.zshenv
 
 # vim
 mkdir -p $HOME/.config/nvim
-mkdir -p $HOME/.vim/templates
 echo linking .vimrc...
 ln -sf $FILES/vim/.vimrc $HOME/.config/nvim/init.vim
 ln -sf $FILES/vim/.vimrc $HOME/.vimrc
-ln -sf $FILES/vim/templates $HOME/.vim/templates
+ln -sf $FILES/vim/templates/* $HOME/.vim/templates/
 
 # tmux
 echo linking .tmux.conf...
@@ -28,6 +29,11 @@ ln -sf $FILES/tmux-resurrect $HOME/.tmux/resurrect
 echo linking .config/tmuxinator...
 ln -sf $FILES/tmuxinator $HOME/.config/tmuxinator
 
+# fonts
+echo linking fonts.conf...
+mkdir -p $HOME/.config/
+ln -sf $FILES/fontconfig $HOME/.config/fontconfig
+
 # autostart
 echo copying .config/autostart/boot...
 mkdir -p $HOME/.config/autostart
@@ -35,6 +41,9 @@ cp -f $FILES/autostart/boot.desktop $HOME/.config/autostart/boot.desktop
 cp -f $FILES/autostart/boot.zsh $HOME/.config/autostart/boot.zsh
 
 echo linking openbox...
-ln -sf $FILES/openbox $HOME/.config/openbox
+ln -sf $FILES/openbox/ $HOME/.config/openbox
+
+echo linking tint2...
+ln -sf $FILES/tint2/ $HOME/.config/tint2
 
 echo symlinks complete!

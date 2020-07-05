@@ -4,18 +4,14 @@
 # Path to your oh-my-zsh installation.
 export ZSH="/home/romigui/.oh-my-zsh"
 source ~/.zshenv
-source $HOME/.cargo/env
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+# source $HOME/.cargo/env
 
 unsetopt nomatch
 precmd() { print "\n" }
 
 export FZF_DEFAULT_OPTS="--history=$HOME/.fzf_history"
-export PATH="$HOME/.rbenv/bin:$PATH"
-export PATH="$HOME/.rbenv/shims:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/gitGdotfiles/bin:$PATH"
+export PATH="$HOME/git/codini:$PATH"
 export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$PATH"
 setopt HIST_IGNORE_ALL_DUPS
@@ -27,6 +23,8 @@ export EDITOR=nvim
 # Compilation flags
 export ARCHFLAGS="-arch x86_64"
 export ERL_AFLAGS="-kernel shell_history enabled"
+
+export CODINI_DIR="$HOME/git/my-codini"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -94,7 +92,7 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   archlinux
-  buffalo
+  # buffalo
   cargo
   docker-compose
   git
@@ -178,10 +176,14 @@ unalias rake
   alias ba='bundle add'
 unalias rails
 alias rc='rails console'
+alias rce='rails credentials:edit'
+alias rcs='rails credentials:show'
 alias rdcm='rake db:drop db:create db:migrate'
 alias rdcms='rake db:drop db:create db:migrate db:seed'
 alias rdrs='rake db:reset db:seed'
  alias rdr='rake db:reset'
+  alias rg='rails generate'
+ alias rgs='rails generate scaffold'
 alias rgsc='rails generate scaffold_controller'
  alias rgh='rails generate --help'
  alias rrs='rails restart'
@@ -224,6 +226,9 @@ alias tmm='tmuxinator s me'
 
 alias ↑↑↓↓←←→→BA='echo "Secret powers unlocked!"'
 
+alias yb='yarn build'
+alias yf='yarn fix'
+alias ys='yarn serve'
 alias yt='yarn test:watch'
 alias ye='yarn esw'
 
@@ -254,10 +259,17 @@ alias runresurrect="while ! tmux run-shell ~/.tmux/plugins/tmux-resurrect/script
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export PATH="$HOME/.cargo/bin:$PATH"
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+. $HOME/.asdf/asdf.sh
+# append completions to fpath
+fpath=(${ASDF_DIR}/completions $fpath)
+# initialise completions with ZSH's compinit
+autoload -Uz compinit
+compinit
+# export PATH="$HOME/.rbenv/bin:$PATH"
+# export PATH="$HOME/.rbenv/shims:$PATH"
+# eval "$(rbenv init -)"
+# eval "$(nodenv init -)"
 export PATH="$HOME/.yarn/bin:$PATH"
-eval "$(nodenv init -)"
 
 function github() {
   arr=("${(@s./.)1}")
