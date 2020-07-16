@@ -101,9 +101,58 @@
       </startupnotify>
     </action>
   </item>
+  <item label="Firefox">
+    <action name="Execute">
+      <command>firefox</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+        <wmclass>Firefox</wmclass>
+      </startupnotify>
+    </action>
+  </item>
   <separator label="System" />
   <menu id="system-menu"/>
-  <separator />
+  <item label="qBittorrent">
+    <action name="Execute">
+      <command>qbittorrent</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+        <wmclass>qbittorrent</wmclass>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="VirtualBox">
+    <action name="Execute">
+      <command>virtualbox</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+        <wmclass>virtualbox</wmclass>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="VMware">
+    <action name="Execute">
+      <command>vmplayer</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+        <wmclass>vmplayer</wmclass>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="BurpSuite">
+    <action name="Execute">
+      <command>burpsuite</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+        <wmclass>burpsuite</wmclass>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="Reconf">
+    <action name="Execute">
+      <command>openbox --reconfigure</command>
+    </action>
+  </item>
   <item label="Log Out">
     <action name="Exit">
       <prompt>yes</prompt>

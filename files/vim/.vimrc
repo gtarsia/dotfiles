@@ -131,7 +131,8 @@ set expandtab
 set tabstop=2
 set shiftwidth=2
 autocmd BufRead,BufNewFile java setlocal shiftwidth=2 tabstop=2
-autocmd BufRead,BufNewFile *.cs,*.cshtml setlocal shiftwidth=4 tabstop=4
+autocmd BufRead,BufNewFile *.cshtml setlocal shiftwidth=2 tabstop=2
+autocmd BufRead,BufNewFile *.cs setlocal shiftwidth=4 tabstop=4
 
 
 " wrap with arrows and newlines

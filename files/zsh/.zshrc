@@ -215,6 +215,7 @@ alias lgs='light -S'
 alias nexp='node --experimental-repl-await'
 
 # tmuxinator
+alias rs='runresurrect & ; _zsh_tmux_plugin_run'
 alias tm='tmuxinator'
 alias tmd='tmuxinator s dotfiles'
 alias tmn='tmuxinator n'

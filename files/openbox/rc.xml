@@ -310,22 +310,12 @@
   </keybind>
   <keybind key="XF86MonBrightnessUp">
     <action name="Execute">
-      <command>light -A 2</command>
+      <command>light -A 1</command>
     </action>
   </keybind>
   <keybind key="XF86MonBrightnessDown">
     <action name="Execute"> 
-      <command>light -U 2</command>
-    </action>
-  </keybind>
-  <keybind key="XF86MonBrightnessUp">
-    <action name="Execute">
-      <command>light -A 2</command>
-    </action>
-  </keybind>
-  <keybind key="XF86MonBrightnessDown">
-    <action name="Execute"> 
-      <command>light -U 2</command>
+      <command>light -U 1</command>
     </action>
   </keybind>
   <keybind key="XF86AudioRaiseVolume">
