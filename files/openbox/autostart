@@ -16,4 +16,6 @@
 #
 #xfce-mcs-manager &
 tint2 &
-xkbcomp -w 0 /home/romigui/dotfiles/files/xkb/nitro-map $DISPLAY
+xkbcomp -w 0 /home/romigui/dotfiles/files/xkb/genius-map $DISPLAY
+xinput float $(xinput list --id-only "AT Translated Set 2 keyboard")
+xrandr --output eDP-1-1 --gamma 1.1:0.8:0.7-0.3-6-0.3-6
