@@ -16,4 +16,4 @@
 #
 #xfce-mcs-manager &
 tint2 &
-xkbcomp -w 0 /home/romigui/dotfiles/files/xkb/.xkbmap $DISPLAY
+xkbcomp -w 0 /home/romigui/dotfiles/files/xkb/nitro-map $DISPLAY
