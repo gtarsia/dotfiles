@@ -279,13 +279,6 @@ function github() {
   tmuxinator s git ${arr[2]}
 }
 
-function fitgit() {
-  arr=("${(@s./.)1}")
-  repo=$HOME/git/${arr[2]}
-  git clone git@git.thegeck.com:$1 $repo
-  tmuxinator s git ${arr[2]}
-}
-
 function save_layout() {
   project=$(basename $(pwd))
   templates=$HOME/.config/tmuxinator

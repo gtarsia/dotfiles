@@ -1,0 +1,15 @@
+# ~/.tmuxinator/sample.yml
+
+name: sample
+root: ~/git/sample
+
+windows:
+  - processes:
+      layout: 8506,147x37,0,0[147x18,0,0,25,147x18,0,19,27]
+      panes:
+        - echo
+        - echo
+  - editor: nvim
+layout: 0bdb,137x35,0,0{68x35,0,0[68x17,0,0,3,68x17,0,18,4],68x35,69,0,5}
+layout: c0c3,137x35,0,0,6
+layout: c0c4,137x35,0,0,7
