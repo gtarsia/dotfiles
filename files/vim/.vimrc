@@ -141,7 +141,7 @@ set whichwrap+=<,>,h,l,[,]
 
 " keep undo settings
 set undofile
-set undodir=/home/romigui/.vimundo/
+set undodir=$HOME/.vimundo/
 
 
 " i have no idea what this is
