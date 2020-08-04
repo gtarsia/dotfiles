@@ -175,6 +175,7 @@ set diffopt+="vertical"
 " enable line numbers
 let NERDTreeShowLineNumbers=1
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+
 let NERDTreeShowHidden=1
 
 
