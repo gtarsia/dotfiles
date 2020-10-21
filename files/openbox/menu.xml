@@ -112,6 +112,24 @@
   </item>
   <separator label="System" />
   <menu id="system-menu"/>
+  <item label="flameshot">
+    <action name="Execute">
+      <command>flameshot</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+        <wmclass>flameshot</wmclass>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="tiled">
+    <action name="Execute">
+      <command>/home/romigui/.local/bin/tiled</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+        <wmclass>tiled</wmclass>
+      </startupnotify>
+    </action>
+  </item>
   <item label="qBittorrent">
     <action name="Execute">
       <command>qbittorrent</command>

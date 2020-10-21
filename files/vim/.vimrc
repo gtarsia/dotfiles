@@ -22,6 +22,7 @@ Plug 'evanleck/vim-svelte'
 Plug 'EvanDotPro/nerdtree-symlink'
 Plug 'godlygeek/tabular'
 Plug 'heavenshell/vim-jsdoc'
+Plug 'igankevich/mesonic'
 Plug 'junegunn/fzf.vim'
 Plug 'kana/vim-arpeggio'
 Plug 'kana/vim-textobj-user'
@@ -45,6 +46,7 @@ Plug 'tpope/vim-scriptease'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/headerguard'
+Plug 'tikhomirov/vim-glsl'
 Plug 'vim-scripts/openvpn'
 Plug 'vim-ruby/vim-ruby'
 Plug 'wavded/vim-stylus'
@@ -289,6 +291,7 @@ if has("autocmd")
   augroup templates
     autocmd BufNewFile,BufReadPost *.vue call VueTemplate()
     autocmd BufNewFile,BufReadPost *.test.js call AvaTestTemplate()
+    autocmd BufNewFile,BufReadPost *.{h,hpp} call HeaderguardAdd()
   augroup END
 endif
 

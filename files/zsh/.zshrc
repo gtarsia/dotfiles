@@ -2,9 +2,14 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
+export TERM=xterm-256color
 export ZSH="$HOME/.oh-my-zsh"
 source ~/.zshenv
 # source $HOME/.cargo/env
+
+# use clang instead of gcc
+export CXX=clang
+export CC=clang
 
 unsetopt nomatch
 precmd() { print "\n" }
@@ -169,6 +174,10 @@ unalias dcup
 unalias dcdn
   alias dcd='docker-compose down'
 
+# meson
+  alias mc='meson compile'
+  alias mb='meson build'
+
   alias mk='make'
 
 # rails
@@ -186,6 +195,7 @@ alias rdrs='rake db:reset db:seed'
  alias rgs='rails generate scaffold'
 alias rgsc='rails generate scaffold_controller'
  alias rgh='rails generate --help'
+  alias rs='rails server'
  alias rrs='rails restart'
 unalias rt
   alias rt='rails test'
@@ -215,7 +225,7 @@ alias lgs='light -S'
 alias nexp='node --experimental-repl-await'
 
 # tmuxinator
-alias rs='runresurrect & ; _zsh_tmux_plugin_run'
+alias tr='runresurrect & ; _zsh_tmux_plugin_run'
 alias tm='tmuxinator'
 alias tmd='tmuxinator s dotfiles'
 alias tmn='tmuxinator n'
