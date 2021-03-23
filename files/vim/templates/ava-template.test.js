@@ -1,4 +1,4 @@
 import test from 'ava'
 
-test('', (t) => {
+test(' should work correctly', (t) => {
 })

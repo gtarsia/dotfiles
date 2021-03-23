@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
 echo installing user base packages...
-yay -S --noconfirm openssh openvpn alacritty google-chrome dnsmasq light-git nodenv nodenv-node-build-git powertop tlp tmux tmuxinator neovim vim-plug fzf the_silver_searcher xsel
+yay -S --noconfirm openssh openvpn alacritty google-chrome dnsmasq tmux tmuxinator neovim vim-plug fzf the_silver_searcher xsel

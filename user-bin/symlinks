@@ -2,7 +2,7 @@
 
 FILES=$(readlink -f $(dirname $0)/../files)
 
-ln -sf $FILES/.Xresources $HOME/.Xresources
+# ln -sf $FILES/.Xresources $HOME/.Xresources
 
 # alacritty
 echo linking .alacritty.yml...
@@ -36,7 +36,7 @@ ln -sf $FILES/fontconfig $HOME/.config/fontconfig
 
 # autostart
 echo copying .config/autostart/boot...
-mkdir -p $HOME/.config/autostart
+# mkdir -p $HOME/.config/autostart
 ln -sf $FILES/autostart/boot.desktop $HOME/.config/autostart/boot.desktop
 ln -sf $FILES/autostart/boot.zsh $HOME/.config/autostart/boot.zsh
 

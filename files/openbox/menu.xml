@@ -92,12 +92,21 @@
       </startupnotify>
     </action>
   </item>
-  <item label="Franz">
+  <item label="WhatsApp">
     <action name="Execute">
-      <command>franz</command>
+      <command>whatsapp-nativefier</command>
       <startupnotify>
         <enabled>yes</enabled>
-        <wmclass>franz</wmclass>
+        <wmclass>whatsapp-nativefier</wmclass>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="Discord">
+    <action name="Execute">
+      <command>discord</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+        <wmclass>discord</wmclass>
       </startupnotify>
     </action>
   </item>
@@ -118,6 +127,15 @@
       <startupnotify>
         <enabled>yes</enabled>
         <wmclass>flameshot</wmclass>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="upwork">
+    <action name="Execute">
+      <command>upwork</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+        <wmclass>upwork</wmclass>
       </startupnotify>
     </action>
   </item>
@@ -163,6 +181,15 @@
       <startupnotify>
         <enabled>yes</enabled>
         <wmclass>burpsuite</wmclass>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="pavucontrol">
+    <action name="Execute">
+      <command>pavucontrol</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+        <wmclass>pavucontrol</wmclass>
       </startupnotify>
     </action>
   </item>

@@ -2,14 +2,11 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export TERM=xterm-256color
+[[ $TMUX != "" ]] && export TERM="screen-256color"
+[[ $TMUX = "" ]] && export TERM="xterm-256color"
 export ZSH="$HOME/.oh-my-zsh"
 source ~/.zshenv
 # source $HOME/.cargo/env
-
-# use clang instead of gcc
-export CXX=clang
-export CC=clang
 
 unsetopt nomatch
 precmd() { print "\n" }
@@ -162,7 +159,7 @@ unalias grh
   alias grs='git reset --soft'
   alias gph='git push heroku'
   alias gpo='git push origin'
-  alias gpg='git push guido'
+  alias gpgu='git push guido'
 
 # docker-compose
   alias cb='cargo build'
@@ -237,11 +234,16 @@ alias tmm='tmuxinator s me'
 
 alias ↑↑↓↓←←→→BA='echo "Secret powers unlocked!"'
 
+alias ya='yarn auth'
 alias yb='yarn build'
+alias yd='yarn dev'
 alias yf='yarn fix'
 alias ys='yarn serve'
 alias yt='yarn test:watch'
 alias ye='yarn esw'
+alias yw='yarn webtest'
+alias yx='yarn example'
+alias yxd='yarn example:debug'
 
 
 # You may need to manually set your language environment
@@ -299,3 +301,9 @@ function save_layout() {
   tmuxinator e $project
 }
 
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/romigui/gcloud/google-cloud-sdk/path.zsh.inc' ]; then . '/home/romigui/gcloud/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/romigui/gcloud/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/romigui/gcloud/google-cloud-sdk/completion.zsh.inc'; fi
