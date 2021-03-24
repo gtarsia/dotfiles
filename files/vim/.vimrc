@@ -14,7 +14,7 @@ Plug 'calviken/vim-gdscript3'
 " Plug 'mtscout6/vim-cjsx', {'for': 'coffee'}
 Plug 'chr4/nginx.vim'
 Plug '/usr/local/opt/fzf'
-Plug 'glacambre/firenvim'
+" Plug 'glacambre/firenvim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'dracula/vim'
 Plug 'elixir-editors/vim-elixir'
