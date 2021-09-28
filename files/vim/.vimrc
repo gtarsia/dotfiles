@@ -62,6 +62,10 @@ if has('nvim')
 endif
 
 let NERDTreeChDirMode=2
+map <C-n> :NERDTreeToggle<CR>
+let NERDTreeShowLineNumbers=1
+let NERDTreeShowHidden=1
+let NERDTreeIgnore = ['^__pycache__$', 'egg-info$', '^.git$', '^.pytest_cache$']
 
 " leader maps
 "" I map it this view so I can see what I'm typing in the showcmd corner 
@@ -173,12 +177,7 @@ let g:surround_116 = "params: { \r }"
 let g:surround_{char2nr("B")} = "**\r**"
 set diffopt+="vertical"
 
-
-" enable line numbers
-let NERDTreeShowLineNumbers=1
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
-
-let NERDTreeShowHidden=1
 
 
 " fzf
@@ -286,18 +285,25 @@ function! AvaTestTemplate()
     normal Gddggjjf'
   end
 endfunction
+function! JsTemplate()
+  if (line('$') == 1 && getline(1) == '')
+    execute '0r ~/.vim/templates/js-template.js'
+    normal Gddggjjw
+  end
+endfunction
 
 if has("autocmd")
   augroup templates
     autocmd BufNewFile,BufReadPost *.vue call VueTemplate()
     autocmd BufNewFile,BufReadPost *.test.js call AvaTestTemplate()
+    autocmd BufNewFile,BufReadPost *.test.mjs call AvaTestTemplate()
+    autocmd BufNewFile,BufReadPost *.js call JsTemplate()
+    autocmd BufNewFile,BufReadPost *.mjs call JsTemplate()
     autocmd BufNewFile,BufReadPost *.{h,hpp} call HeaderguardAdd()
   augroup END
 endif
 
 
-" nerdtree
-map <C-n> :NERDTreeToggle<CR>
 
 
 " dracula

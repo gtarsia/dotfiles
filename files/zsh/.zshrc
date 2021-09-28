@@ -6,6 +6,7 @@
 [[ $TMUX = "" ]] && export TERM="xterm-256color"
 export ZSH="$HOME/.oh-my-zsh"
 source ~/.zshenv
+printf "\e]2;$USER@$HOST\a"
 # source $HOME/.cargo/env
 
 unsetopt nomatch
@@ -104,6 +105,7 @@ plugins=(
   zsh_reload
   history-substring-search
   bgnotify
+  dotenv
 )
 source $ZSH/oh-my-zsh.sh
 
@@ -161,7 +163,8 @@ unalias grh
   alias gpo='git push origin'
   alias gpgu='git push guido'
 
-# docker-compose
+  alias code='code-insiders'
+
   alias cb='cargo build'
   alias cr='cargo run'
 
@@ -232,13 +235,19 @@ alias tme='tmuxinator e'
 alias tmf='tmuxinator s fs'
 alias tmm='tmuxinator s me'
 
+alias pt='pytest -vv'
+
 alias ↑↑↓↓←←→→BA='echo "Secret powers unlocked!"'
 
 alias ya='yarn auth'
+alias yaa='yarn auth-admin'
 alias yb='yarn build'
+alias yc='yarn cli'
 alias yd='yarn dev'
+alias ydc='yarn dev-cached'
 alias yf='yarn fix'
 alias ys='yarn serve'
+alias ysa='yarn serve-admin'
 alias yt='yarn test:watch'
 alias ye='yarn esw'
 alias yw='yarn webtest'

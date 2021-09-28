@@ -2,4 +2,6 @@
   <div>
   </div>
 </template>
-<script src="./script"></script>
+<script>
+export default {}
+</script>
