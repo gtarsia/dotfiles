@@ -96,13 +96,11 @@ DISABLE_AUTO_TITLE="true"
 plugins=(
   archlinux
   # buffalo
-  cargo
   docker-compose
   git
   globalias
   rails
   tmux
-  zsh_reload
   history-substring-search
   bgnotify
   dotenv
