@@ -2,8 +2,8 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-[[ $TMUX != "" ]] && export TERM="screen-256color"
-[[ $TMUX = "" ]] && export TERM="xterm-256color"
+# [[ $TMUX != "" ]] && export TERM="screen-256color"
+# [[ $TMUX = "" ]] && export TERM="xterm-256color"
 export ZSH="$HOME/.oh-my-zsh"
 source ~/.zshenv
 printf "\e]2;$USER@$HOST\a"
@@ -15,6 +15,19 @@ precmd() { print "\n" }
 export FZF_DEFAULT_OPTS="--history=$HOME/.fzf_history"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/git/codini:$PATH"
+export PATH="$HOME/bin:$PATH"
+
+# android
+export ANDROID_SDK_ROOT="$HOME/Android/Sdk"
+export ANDROID_HOME=$ANDROID_SDK_ROOT
+# export ANDROID_EMULATOR_HOME='/opt/android-sdk/emulator'
+# export PATH="${PATH}:${ANDROID_HOME}/platform-tools"
+# export PATH="${PATH}:${ANDROID_HOME}/emulator"
+
+# dotnet
+export PATH="$HOME/.dotnet:$PATH"
+export DOTNET_ROOT="$HOME/.dotnet"
+
 export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$PATH"
 setopt HIST_IGNORE_ALL_DUPS
@@ -28,6 +41,9 @@ export ARCHFLAGS="-arch x86_64"
 export ERL_AFLAGS="-kernel shell_history enabled"
 
 export CODINI_DIR="$HOME/git/my-codini"
+export MONOPKG="$HOME/git/monorepo/packages"
+
+# (cat $HOME/.config/wpg/sequences &)
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -99,11 +115,10 @@ plugins=(
   docker-compose
   git
   globalias
-  rails
+  # rails
   tmux
   history-substring-search
   bgnotify
-  dotenv
 )
 source $ZSH/oh-my-zsh.sh
 
@@ -131,12 +146,14 @@ alias game="sudo bash /home/romigui/dotfiles/root-bin/game"
   alias yasn='yaourt -S --noconfirm'
 
 # buffalo
-  alias bd='buffalo dev'
-  alias bg='buffalo generate'
-  alias bp='buffalo pop'
- alias bpm='buffalo pop migrate'
+  alias ba='bundle add'
+  alias br='bundle exec ruby'
+  alias be='bundle exec'
 
  alias cl='ceedling'
+
+ alias dr='dotnet run'
+ alias db='dotnet build'
 
 # My aliases
 # git /\(unalias\|alias\) 
@@ -150,7 +167,7 @@ unalias gap
   alias gfg='git fetch guido'
   alias gla='git log --graph --decorate --pretty=oneline --abbrev-commit --all $argv'
 unalias gst
-   alias gs='git status -sb'
+   alias gs='git -c color.status=always status -sb'
   alias gdc='git diff --cached'
 unalias gr
    alias gr='git reset --'
@@ -160,23 +177,42 @@ unalias grh
   alias gph='git push heroku'
   alias gpo='git push origin'
   alias gpgu='git push guido'
+function gvr() {
+  xdg-open https://$(git remote get-url origin | cut -c 5- | tr : /)
+}
 
-  alias code='code-insiders'
+  # export MANPATH="/usr/local/man:$MANPATH"
+  alias gw='npm run gulp-watch'
+  alias dw='npm run gulp-dotwatch'
 
   alias cb='cargo build'
   alias cr='cargo run'
 
+  alias dbb='docker run --rm -it $(docker build -q .) /bin/bash'
+  alias dbr='docker run --rm $(docker build -q .) #'
+  alias dc='docker compose'
 unalias dcup
   alias dcu='docker-compose up'
   alias dcub='docker-compose up --build'
 unalias dcdn
   alias dcd='docker-compose down'
+  alias dp='docker ps'
 
 # meson
   alias mc='meson compile'
   alias mb='meson build'
 
   alias mk='make'
+
+alias nexp='node --experimental-repl-await'
+
+# npm
+  alias ns='npm start'
+  alias nt='npm test'
+
+ alias or='omz reload'
+
+  alias ports='ss -lntp | grep'
 
 # rails
 unalias rake
@@ -189,7 +225,7 @@ alias rdcm='rake db:drop db:create db:migrate'
 alias rdcms='rake db:drop db:create db:migrate db:seed'
 alias rdrs='rake db:reset db:seed'
  alias rdr='rake db:reset'
-  alias rg='rails generate'
+  # alias rg='rails generate'
  alias rgs='rails generate scaffold'
 alias rgsc='rails generate scaffold_controller'
  alias rgh='rails generate --help'
@@ -197,6 +233,7 @@ alias rgsc='rails generate scaffold_controller'
  alias rrs='rails restart'
 unalias rt
   alias rt='rails test'
+  alias rtt='rake test TESTOPTS="-n=/slow/"'
 
   alias zr='zig run'
 
@@ -207,74 +244,76 @@ alias k9='sudo kill -9'
 # unalias annoying zsh grep
 unalias grep
 alias ggrep='\grep  --color=auto --exclude-dir=.bzr --exclude-dir=CVS --exclude-dir=.git --exclude-dir=.hg --exclude-dir=.svn'
-alias pg='ps -ax | grep'
 
 # User configuration
 #
 zstyle ':notify:*' command-complete-timeout 1
 zstyle ':notify:*' success-title "Command finished"
 
-# export MANPATH="/usr/local/man:$MANPATH"
-alias gw='npm run gulp-watch'
-alias dw='npm run gulp-dotwatch'
-
 alias lg='light'
 alias lgs='light -S'
-alias nexp='node --experimental-repl-await'
+
+alias pg='ps -ax | grep'
+
+alias src='omz reload'
+unalias sd
 
 # tmuxinator
-alias tr='runresurrect & ; _zsh_tmux_plugin_run'
+alias tk='tmux kill-server'
+alias tmr='runresurrect & ; _zsh_tmux_plugin_run'
 alias tm='tmuxinator'
 alias tmd='tmuxinator s dotfiles'
 alias tmn='tmuxinator n'
-alias tms='tmuxinator s'
 alias tmg='tmuxinator s git'
 alias tme='tmuxinator e'
 alias tmf='tmuxinator s fs'
 alias tmm='tmuxinator s me'
+alias tms='tmuxinator s single'
 
 alias pt='pytest -vv'
 
 alias ↑↑↓↓←←→→BA='echo "Secret powers unlocked!"'
 
-alias ya='yarn auth'
-alias yaa='yarn auth-admin'
-alias yb='yarn build'
-alias yc='yarn cli'
-alias yd='yarn dev'
-alias ydc='yarn dev-cached'
+alias wbw='node $HOME/git/monorepo/packages/workie/bin.js watch ybw --'
+alias wn='node $HOME/git/monorepo/packages/workie/bin.js new'
+alias wr='node $HOME/git/monorepo/packages/workie/bin.js run'
+alias ww='node $HOME/git/monorepo/packages/workie/bin.js watch'
+alias wt='node $HOME/git/monorepo/packages/workie/bin.js typecheck'
+
+alias sp='npx supabase'
+
+alias -g ya='yarn add'
+alias -g yaa='yarn auth-admin'
+alias -g yad='yarn add --dev'
+alias -g yb='yarn build'
+alias -g ybw='yarn build:watch'
+alias -g yc='yarn cli'
+alias ycd='yarn cypress:dev'
+alias yco='yarn cypress:open'
+alias ycr='yarn cypress:run'
+alias -g yd='yarn dev'
+alias ydc='yarn dev:cached'
+alias ydb='yarn debug'
 alias yf='yarn fix'
+alias yl='yarn lint'
+alias ylw='yarn lint:watch'
+alias yp='yarn pub'
+alias yr='yarn rw'
+alias yrd='yarn rw dev'
+alias yrg='yarn rw g'
 alias ys='yarn serve'
 alias ysa='yarn serve-admin'
-alias yt='yarn test:watch'
+alias -g yts='yarn ts:watch'
+alias yt='yarn test'
+alias ytd='yarn test:debug'
+alias ytw='yarn test:watch'
 alias ye='yarn esw'
-alias yw='yarn webtest'
 alias yx='yarn example'
 alias yxd='yarn example:debug'
 
+alias zc='zw -c --'
+alias ztw='zw ts watch'
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
 alias runresurrect="while ! tmux run-shell ~/.tmux/plugins/tmux-resurrect/scripts/restore.sh; do sleep 0.2; done"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -298,6 +337,19 @@ function github() {
   tmuxinator s git ${arr[2]}
 }
 
+function gitlab() {
+  arr=("${(@s./.)1}")
+  repo=$HOME/git/${arr[2]}
+  git clone git@git.thegeck.com:$1 $repo
+  tmuxinator s git ${arr[2]}
+}
+
+alias np='node-project'
+function node-project() {
+  repo=${1:-.}
+  git clone --separate-git-dir=$(mktemp -u) --depth=1 git@github.com:zzyyxxww/ts-project.git $repo && rm $repo/.git
+}
+
 function save_layout() {
   project=$(basename $(pwd))
   templates=$HOME/.config/tmuxinator
@@ -306,6 +358,12 @@ function save_layout() {
   cp $sample $template
   tmux list-windows | grep -Po 'layout\K(.+)(?=] )' | awk '{print "layout: " $1}' >> $template
   tmuxinator e $project
+}
+
+function nd() {
+  bin=$(yarn global bin)
+  echo $@
+  node --inspect-brk $bin/$1 ${@:2}
 }
 
 

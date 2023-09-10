@@ -1,0 +1,9 @@
+# /home/romigui/.config/tmuxinator/github.yml
+
+name: <%= @args[0] %>-single
+root: ~/git/<%= @args[0] %>
+
+windows:
+  - single:
+      panes:
+        - echo

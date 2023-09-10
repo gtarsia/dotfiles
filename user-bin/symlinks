@@ -47,4 +47,8 @@ ln -sf $FILES/openbox/ $HOME/.config/openbox
 echo linking tint2...
 ln -sf $FILES/tint2/ $HOME/.config/tint2
 
+echo linking mpv...
+mkdir -p $HOME/.config/mpv
+ln -sf $FILES/mpv/input.conf $HOME/.config/mpv/input.conf
+
 echo symlinks complete!

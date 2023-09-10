@@ -1,60 +1,85 @@
 " Plugins
+" p
+
+" keep undo settings
+set undofile
+set undodir=$HOME/.vimundo/
+
 call plug#begin('~/.vim/plugged')
-Plug 'OrangeT/vim-csharp'
-" Plug 'chase/vim-ansible-yaml'
-Plug 'calviken/vim-gdscript3'
-" Plug 'chrisbra/NrrwRgn'
-" Plug 'davidpdrsn/vim-spectacular'
-" Plug 'digitaltoad/vim-pug'
+  Plug 'christoomey/vim-tmux-navigator'
+  Plug 'dracula/vim'
+  Plug 'junegunn/fzf.vim'
+  Plug '/usr/local/opt/fzf'
+  Plug 'kana/vim-arpeggio'
+  Plug 'MaxMEllon/vim-jsx-pretty'
+  Plug 'rcarraretto/vim-surround', { 'branch': 'test' }
+  Plug 'scrooloose/nerdtree'
+  Plug 'tpope/vim-commentary'
+  Plug 'SirVer/ultisnips'
+  Plug 'honza/vim-snippets'
+  Plug 'lifepillar/pgsql.vim'
+  " Plug 'prettier/vim-prettier'
+  " Plug 'vim-autoformat/vim-autoformat'
+  " Plug 'leafOfTree/vim-vue-plugin'
+  Plug 'ntpeters/vim-better-whitespace'
+" Plug 'OrangeT/vim-csharp'
+" Plug 'bluz71/vim-nightfly-guicolors'
+" " Plug 'chase/vim-ansible-yaml'
+" " Plug 'calviken/vim-gdscript3'
+" " Plug 'chrisbra/NrrwRgn'
+" " Plug 'davidpdrsn/vim-spectacular'
+" " Plug 'digitaltoad/vim-pug'
+" " Plug 'dylanaraps/wal.vim'
+" " Plug 'elixir-editors/vim-elixir'
+" " Plug 'hsanson/vim-android'
+" " Plug 'jceb/vim-orgmode'
+" " Plug 'kchmck/vim-coffee-script'
+" " Plug 'mtscout6/vim-cjsx', {'for': 'coffee'}
+" Plug 'chr4/nginx.vim'
 " Plug 'dylanaraps/wal.vim'
-" Plug 'elixir-editors/vim-elixir'
-" Plug 'hsanson/vim-android'
-" Plug 'jceb/vim-orgmode'
-" Plug 'kchmck/vim-coffee-script'
-" Plug 'mtscout6/vim-cjsx', {'for': 'coffee'}
-Plug 'chr4/nginx.vim'
-Plug '/usr/local/opt/fzf'
-" Plug 'glacambre/firenvim'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'dracula/vim'
-Plug 'elixir-editors/vim-elixir'
-Plug 'evanleck/vim-svelte'
-Plug 'EvanDotPro/nerdtree-symlink'
+" " Plug 'glacambre/firenvim'
+" " Plug 'morhetz/gruvbox'
+" " Plug 'elixir-editors/vim-elixir'
+" Plug 'evanleck/vim-svelte'
+" Plug 'EvanDotPro/nerdtree-symlink'
 Plug 'godlygeek/tabular'
-Plug 'heavenshell/vim-jsdoc'
-Plug 'igankevich/mesonic'
-Plug 'junegunn/fzf.vim'
-Plug 'kana/vim-arpeggio'
-Plug 'kana/vim-textobj-user'
+" Plug 'heavenshell/vim-jsdoc'
+" " Plug 'igankevich/mesonic'
+" Plug 'kana/vim-textobj-user'
 Plug 'lambdalisue/suda.vim'
-Plug 'leafgarland/typescript-vim'
-Plug 'michaeljsmith/vim-indent-object'
-Plug 'ntpeters/vim-better-whitespace'
-Plug 'pangloss/vim-javascript'
-" Plug 'pearofducks/ansible-vim'
-Plug 'plasticboy/vim-markdown'
-Plug 'posva/vim-vue'
-Plug 'rcarraretto/vim-surround', { 'branch': 'test' }
-Plug 'rust-lang/rust.vim'
-Plug 'scrooloose/nerdtree'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-ragtag'
-Plug 'tpope/vim-rails'
-Plug 'tpope/vim-scriptease'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'vim-scripts/headerguard'
-Plug 'tikhomirov/vim-glsl'
-Plug 'vim-scripts/openvpn'
-Plug 'vim-ruby/vim-ruby'
-Plug 'wavded/vim-stylus'
-Plug 'whatyouhide/vim-textobj-erb'
-Plug 'ziglang/zig.vim'
+
+" " Plug 'peitalin/vim-jsx-typescript'
+
+" " Plug 'leafgarland/typescript-vim'
+" Plug 'michaeljsmith/vim-indent-object'
+" " Plug 'mxw/vim-jsx'
+" " Plug 'pangloss/vim-javascript'
+" " Plug 'pearofducks/ansible-vim'
+" Plug 'rust-lang/rust.vim'
+" " Plug 'tasn/vim-tsx'
+" Plug 'tpope/vim-markdown'
+" Plug 'tpope/vim-eunuch'
+" Plug 'tpope/vim-fugitive'
+" Plug 'tpope/vim-ragtag'
+" Plug 'tpope/vim-rails'
+" Plug 'tpope/vim-scriptease'
+" " Plug 'vim-airline/vim-airline'
+" " Plug 'vim-airline/vim-airline-themes'
+" Plug 'vim-scripts/headerguard'
+" " Plug 'tikhomirov/vim-glsl'
+" Plug 'vim-scripts/openvpn'
+" Plug 'vim-ruby/vim-ruby'
+" " Plug 'wavded/vim-stylus'
+" Plug 'whatyouhide/vim-textobj-erb'
+" Plug 'ziglang/zig.vim'
 call plug#end()
 
-set clipboard=unnamed
+lua require('plugins')
+
+set laststatus=2
+set noshowmode
+
+" set clipboard=unnamed
 " relative number and line endings
 set nu relativenumber
 if has('nvim')
@@ -65,12 +90,22 @@ let NERDTreeChDirMode=2
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeShowLineNumbers=1
 let NERDTreeShowHidden=1
-let NERDTreeIgnore = ['^__pycache__$', 'egg-info$', '^.git$', '^.pytest_cache$']
+" let NERDTreeMapToggleFilters=1
+let NERDTreeIgnore = [
+  \'^__pycache__$', 'egg-info$', '^.pytest_cache$',
+  \'^.git$', '.husky', '.vscode',
+  \'node_modules', 'dist', '.nuxt',
+  \'^coverage$',
+  \'yarn-error.log',
+\]
+let NERDTreeMapToggleHidden=""
+let NERDTreeMapToggleFilters="I"
+autocmd VimEnter * if !argc() | NERDTree | endif
 
 " leader maps
 "" I map it this view so I can see what I'm typing in the showcmd corner 
 map <SPACE> <leader>
-nnoremap <leader>ag :Ag<cr>
+nnoremap <leader>ag :Rg<cr>
 nnoremap <leader>c :
 noremap <leader>c :
 nnoremap <leader>ff :!npx eslint --fix %<cr>
@@ -138,16 +173,12 @@ set tabstop=2
 set shiftwidth=2
 autocmd BufRead,BufNewFile java setlocal shiftwidth=2 tabstop=2
 autocmd BufRead,BufNewFile *.cshtml setlocal shiftwidth=2 tabstop=2
+autocmd BufRead,BufNewFile *.tsx setlocal shiftwidth=2 tabstop=2
 autocmd BufRead,BufNewFile *.cs setlocal shiftwidth=4 tabstop=4
 
 
 " wrap with arrows and newlines
 set whichwrap+=<,>,h,l,[,]
-
-
-" keep undo settings
-set undofile
-set undodir=$HOME/.vimundo/
 
 
 " i have no idea what this is
@@ -161,8 +192,8 @@ au BufRead,BufNewFile *.coffee.tt set filetype=coffee
 
 
 " add python bindings
-let g:python2_host_prog = '/usr/bin/python'
-let g:python3_host_prog = '/usr/local/bin/python3'
+" let g:python2_host_prog = '/usr/bin/python'
+" let g:python3_host_prog = '/usr/local/bin/python3'
 
 
 " clipboard for os x
@@ -177,8 +208,7 @@ let g:surround_116 = "params: { \r }"
 let g:surround_{char2nr("B")} = "**\r**"
 set diffopt+="vertical"
 
-let $FZF_DEFAULT_COMMAND = 'ag -g ""'
-
+let $FZF_DEFAULT_COMMAND = 'rg -l --no-ignore --ignore-file .gitignore --ignore-file ~/.ignore -e ""'
 
 " fzf
 command! -nargs=* AgQ call fzf#vim#ag(<q-args>, {'down': '40%', 'options': '-q '.shellescape(<q-args>.' ')})
@@ -197,7 +227,13 @@ function! s:ag_with_opts(arg, bang)
 endfunction
 
 command! -nargs=* -bang Ag call s:ag_with_opts(<q-args>, <bang>0)
+" command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
 " command! AgC call fzf#vim#ag_raw('--ignore yarn.lock')
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg  --no-ignore --ignore-file .gitignore --ignore-file ~/.ignore --column --line-number
+  \ --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1,
+  \   {'options': '--delimiter : --nth 4..'}, <bang>0)
 
 " move modifier to control
 let g:move_key_modifier = 'C'
@@ -235,26 +271,16 @@ function! ToggleHiddenAll()
     set relativenumber
   endif
 endfunction
-
-
 nnoremap <S-h> :call ToggleHiddenAll()<CR>
 
-
-" easier terminal exit
-tnoremap <C-t> <C-\><C-n>
-
-
-" auto save folds
-" augroup AutoSaveFolds
-"   autocmd!
-"   autocmd BufWinLeave *.txt mkview
-"   autocmd BufWinEnter *.txt silent loadview
-" augroup END
+" snippets
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " set indent for txt files
 " au BufRead,BufNewFile *.txt set fdm=indent
 set nofoldenable
-
 
 " narrow region bindings
 set hidden
@@ -272,65 +298,27 @@ augroup filetype_yaml
   setlocal tabstop=2
 augroup END
 
-" skeletons
-function! VueTemplate()
-  if (line('$') == 1 && getline(1) == '')
-    execute '0r ~/.vim/templates/vue-template.vue'
-    normal Gddgg
-  end
-endfunction
-function! AvaTestTemplate()
-  if (line('$') == 1 && getline(1) == '')
-    execute '0r ~/.vim/templates/ava-template.test.js'
-    normal Gddggjjf'
-  end
-endfunction
-function! JsTemplate()
-  if (line('$') == 1 && getline(1) == '')
-    execute '0r ~/.vim/templates/js-template.js'
-    normal Gddggjjw
-  end
-endfunction
-
 if has("autocmd")
   augroup templates
     autocmd BufNewFile,BufReadPost *.vue call VueTemplate()
     autocmd BufNewFile,BufReadPost *.test.js call AvaTestTemplate()
     autocmd BufNewFile,BufReadPost *.test.mjs call AvaTestTemplate()
-    autocmd BufNewFile,BufReadPost *.js call JsTemplate()
-    autocmd BufNewFile,BufReadPost *.mjs call JsTemplate()
     autocmd BufNewFile,BufReadPost *.{h,hpp} call HeaderguardAdd()
+    autocmd BufNewFile,BufReadPost *_test.rb call RbTestTemplate()
   augroup END
 endif
 
 
-
+" true color with alacritty/tmux
+if !has('gui_running') && &term =~ '^\%(screen\|tmux\)'
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+endif
 
 " dracula
 let g:dracula_colorterm = 0
 color dracula
 
-
-" some adhoc script I wrote for extracting something
-function! ExtractScript() range
-  let listing = getline(a:firstline)
-  let matches = matchlist(listing, 'Listing \(\w\+\).\(\w\+\)')
-  let chapter = matches[1]
-  let listingNumber = matches[2]
-  let subchapter = matchstr(fnamemodify(expand('%'), ':h'), '\(\d\+.\d\+\)$')
-  let codePath = expand('%:p:h') . '/code/' . chapter . '.' . listingNumber . '.ruby'
-  call writefile(getline(a:firstline+1, a:lastline), codePath)
-  normal gvdk
-  call append('.', ['', listing, '', '<<< @/docs/redacted/poodr/'.chapter.'/'.subchapter.'/code/'.chapter.'.'.listingNumber.'.ruby', ''])
-endfunction
-vnoremap <leader>es :call ExtractScript()<cr>
-
-
-" some other stuff I don't use anymore
-function! Snooze()
-  let amount = input('Move how many lines down: ')
-  normal! dd
-  execute "normal! " . amount . "j"
-  normal! P
-endfunction
-nnoremap <leader>sn :call Snooze()<cr>
+" sql
+let g:sql_type_default = 'pgsql' " lifepillar/pgsql.vim
+autocmd FileType sql set commentstring=--%s
