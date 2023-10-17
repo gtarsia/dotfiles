@@ -14,8 +14,9 @@ precmd() { print "\n" }
 
 export FZF_DEFAULT_OPTS="--history=$HOME/.fzf_history"
 export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/git/codini:$PATH"
 export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/.yarn/bin:$PATH"
+export PATH="$HOME/.bun/bin:$PATH"
 
 # android
 export ANDROID_SDK_ROOT="$HOME/Android/Sdk"
@@ -25,11 +26,11 @@ export ANDROID_HOME=$ANDROID_SDK_ROOT
 # export PATH="${PATH}:${ANDROID_HOME}/emulator"
 
 # dotnet
-export PATH="$HOME/.dotnet:$PATH"
-export DOTNET_ROOT="$HOME/.dotnet"
+# export PATH="$HOME/.dotnet:$PATH"
+# export DOTNET_ROOT="$HOME/.dotnet"
 
 export GOPATH="$HOME/go"
-export PATH="$GOPATH/bin:$PATH"
+# export PATH="$GOPATH/bin:$PATH"
 setopt HIST_IGNORE_ALL_DUPS
 #
 # You may need to manually set your language environment
@@ -40,7 +41,6 @@ export EDITOR=nvim
 export ARCHFLAGS="-arch x86_64"
 export ERL_AFLAGS="-kernel shell_history enabled"
 
-export CODINI_DIR="$HOME/git/my-codini"
 export MONOPKG="$HOME/git/monorepo/packages"
 
 # (cat $HOME/.config/wpg/sequences &)
@@ -114,13 +114,14 @@ plugins=(
   # buffalo
   docker-compose
   git
-  globalias
+  # globalias
   # rails
   tmux
   history-substring-search
   bgnotify
 )
 source $ZSH/oh-my-zsh.sh
+
 
 # User configuration
 
@@ -146,9 +147,11 @@ alias game="sudo bash /home/romigui/dotfiles/root-bin/game"
   alias yasn='yaourt -S --noconfirm'
 
 # buffalo
-  alias ba='bundle add'
-  alias br='bundle exec ruby'
-  alias be='bundle exec'
+  alias ba='bun add'
+  alias bad='bun add -D'
+  alias bb='bun run build'
+  alias bd='bun dev'
+  alias bi='bun install'
 
  alias cl='ceedling'
 
@@ -180,11 +183,10 @@ unalias grh
 function gvr() {
   xdg-open https://$(git remote get-url origin | cut -c 5- | tr : /)
 }
+  alias gwa='git worktree add'
+
 
   # export MANPATH="/usr/local/man:$MANPATH"
-  alias gw='npm run gulp-watch'
-  alias dw='npm run gulp-dotwatch'
-
   alias cb='cargo build'
   alias cr='cargo run'
 
@@ -204,7 +206,9 @@ unalias dcdn
 
   alias mk='make'
 
+# node
 alias nexp='node --experimental-repl-await'
+  alias ni='node --inspect-brk'
 
 # npm
   alias ns='npm start'
@@ -214,28 +218,30 @@ alias nexp='node --experimental-repl-await'
 
   alias ports='ss -lntp | grep'
 
-# rails
-unalias rake
-  alias ba='bundle add'
-unalias rails
-alias rc='rails console'
-alias rce='rails credentials:edit'
-alias rcs='rails credentials:show'
-alias rdcm='rake db:drop db:create db:migrate'
-alias rdcms='rake db:drop db:create db:migrate db:seed'
-alias rdrs='rake db:reset db:seed'
- alias rdr='rake db:reset'
-  # alias rg='rails generate'
- alias rgs='rails generate scaffold'
-alias rgsc='rails generate scaffold_controller'
- alias rgh='rails generate --help'
-  alias rs='rails server'
- alias rrs='rails restart'
-unalias rt
-  alias rt='rails test'
-  alias rtt='rake test TESTOPTS="-n=/slow/"'
+# pnpm
+alias pa='pnpm add'
+alias pad='pnpm add -D'
+alias pi='pnpm i'
 
-  alias zr='zig run'
+# rails
+# unalias rake
+# unalias rails
+# alias rc='rails console'
+# alias rce='rails credentials:edit'
+# alias rcs='rails credentials:show'
+# alias rdcm='rake db:drop db:create db:migrate'
+# alias rdcms='rake db:drop db:create db:migrate db:seed'
+# alias rdrs='rake db:reset db:seed'
+#  alias rdr='rake db:reset'
+#   # alias rg='rails generate'
+#  alias rgs='rails generate scaffold'
+# alias rgsc='rails generate scaffold_controller'
+#  alias rgh='rails generate --help'
+#   alias rs='rails server'
+#  alias rrs='rails restart'
+# unalias rt
+#   alias rt='rails test'
+#   alias rtt='rake test TESTOPTS="-n=/slow/"'
 
 # misc
 alias hotdog='open https://appear.in/superfluous-hotdog'
@@ -253,10 +259,11 @@ zstyle ':notify:*' success-title "Command finished"
 alias lg='light'
 alias lgs='light -S'
 
+
 alias pg='ps -ax | grep'
 
 alias src='omz reload'
-unalias sd
+# unalias sd
 
 # tmuxinator
 alias tk='tmux kill-server'
@@ -270,17 +277,7 @@ alias tmf='tmuxinator s fs'
 alias tmm='tmuxinator s me'
 alias tms='tmuxinator s single'
 
-alias pt='pytest -vv'
-
-alias ↑↑↓↓←←→→BA='echo "Secret powers unlocked!"'
-
-alias wbw='node $HOME/git/monorepo/packages/workie/bin.js watch ybw --'
-alias wn='node $HOME/git/monorepo/packages/workie/bin.js new'
-alias wr='node $HOME/git/monorepo/packages/workie/bin.js run'
-alias ww='node $HOME/git/monorepo/packages/workie/bin.js watch'
-alias wt='node $HOME/git/monorepo/packages/workie/bin.js typecheck'
-
-alias sp='npx supabase'
+alias td='turbo dev'
 
 alias -g ya='yarn add'
 alias -g yaa='yarn auth-admin'
@@ -311,8 +308,7 @@ alias ye='yarn esw'
 alias yx='yarn example'
 alias yxd='yarn example:debug'
 
-alias zc='zw -c --'
-alias ztw='zw ts watch'
+alias zr='zig run'
 
 alias runresurrect="while ! tmux run-shell ~/.tmux/plugins/tmux-resurrect/scripts/restore.sh; do sleep 0.2; done"
 
@@ -328,7 +324,6 @@ compinit
 # export PATH="$HOME/.rbenv/shims:$PATH"
 # eval "$(rbenv init -)"
 # eval "$(nodenv init -)"
-export PATH="$HOME/.yarn/bin:$PATH"
 
 function github() {
   arr=("${(@s./.)1}")
@@ -344,10 +339,9 @@ function gitlab() {
   tmuxinator s git ${arr[2]}
 }
 
-alias np='node-project'
-function node-project() {
-  repo=${1:-.}
-  git clone --separate-git-dir=$(mktemp -u) --depth=1 git@github.com:zzyyxxww/ts-project.git $repo && rm $repo/.git
+function clone-rm() {
+  repo=${2:-.}
+  git clone --separate-git-dir=$(mktemp -u) --depth=1 $1 $repo && rm $repo/.git
 }
 
 function save_layout() {
@@ -366,9 +360,40 @@ function nd() {
   node --inspect-brk $bin/$1 ${@:2}
 }
 
+# export LESS_TERMCAP_mb=$'\e[01;31m'       # begin blinking
+# export LESS_TERMCAP_md=$'\e[01;37m'       # begin bold
+# export LESS_TERMCAP_me=$'\e[0m'           # end all mode like so, us, mb, md, mr
+# export LESS_TERMCAP_se=$'\e[0m'           # end standout-mode
+# export LESS_TERMCAP_so=$'\e[45;93m'       # start standout mode
+# export LESS_TERMCAP_ue=$'\e[0m'           # end underline
+# export LESS_TERMCAP_us=$'\e[4;93m'        # start underlining
+export MANPAGER="less -R --use-color -Dd+r -Du+b"
+export MANROFFOPT="-P -c"
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/romigui/gcloud/google-cloud-sdk/path.zsh.inc' ]; then . '/home/romigui/gcloud/google-cloud-sdk/path.zsh.inc'; fi
 
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/romigui/gcloud/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/romigui/gcloud/google-cloud-sdk/completion.zsh.inc'; fi
+# # The next line updates PATH for the Google Cloud SDK.
+# if [ -f '/home/romigui/gcloud/google-cloud-sdk/path.zsh.inc' ]; then . '/home/romigui/gcloud/google-cloud-sdk/path.zsh.inc'; fi
+#
+# # The next line enables shell command completion for gcloud.
+# if [ -f '/home/romigui/gcloud/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/romigui/gcloud/google-cloud-sdk/completion.zsh.inc'; fi
+
+# bun completions
+[ -s "/home/romigui/.bun/_bun" ] && source "/home/romigui/.bun/_bun"
+
+
+galias() {
+   # Get last word to the left of the cursor:
+   # (z) splits into words using shell parsing
+   # (A) makes it an array even if there's only one element
+   # local word=${${(Az)LBUFFER}[-1]}
+   # if [[ $GLOBALIAS_FILTER_VALUES[(Ie)$word] -eq 0 ]]; then
+      zle _expand_alias
+      # zle expand-word
+   # fi
+   zle self-insert
+}
+zle -N galias
+
+# space expands all aliases, including global
+bindkey -M emacs " " galias
+bindkey -M viins " " galias

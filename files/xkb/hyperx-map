@@ -1330,7 +1330,7 @@ xkb_symbols "pc+br(nodeadkeys)+inet(evdev)+altwin(swap_lalt_lwin)+ctrl(nocaps)+t
     };
     key <AD06> {
         type[group1]= "FOUR_LEVEL_SEMIALPHABETIC",
-        symbols[Group1]= [               y,               Y,       leftarrow,             yen ],
+        symbols[Group1]= [               y,               Y,       Home,             yen ],
         symbols[Group2]= [               y,               Y ],
         symbols[Group3]= [       leftarrow ]
     };
@@ -1348,7 +1348,7 @@ xkb_symbols "pc+br(nodeadkeys)+inet(evdev)+altwin(swap_lalt_lwin)+ctrl(nocaps)+t
     };
     key <AD09> {
         type[group1]= "FOUR_LEVEL_ALPHABETIC",
-        symbols[Group1]= [               o,               O,          oslash,          Oslash ],
+        symbols[Group1]= [               o,               O,          End,          Oslash ],
         symbols[Group2]= [               o,               O ],
         symbols[Group3]= [          oslash,          Oslash ]
     };
@@ -1359,10 +1359,8 @@ xkb_symbols "pc+br(nodeadkeys)+inet(evdev)+altwin(swap_lalt_lwin)+ctrl(nocaps)+t
         symbols[Group3]= [           thorn,           THORN ]
     };
     key <AD11> {
-        type[group1]= "FOUR_LEVEL",
-        symbols[Group1]= [      at,           grave,           acute,           grave ],
-        symbols[Group2]= [      apostrophe,           grave ],
-        symbols[Group3]= [           acute ]
+        type= "FOUR_LEVEL",
+        symbols[Group1]= [      dead_acute,  dead_diaeresis,  dead_diaeresis,  dead_abovering ]
     };
     key <AD12> {
         type[group1]= "FOUR_LEVEL",
@@ -1423,10 +1421,8 @@ xkb_symbols "pc+br(nodeadkeys)+inet(evdev)+altwin(swap_lalt_lwin)+ctrl(nocaps)+t
         symbols[Group1]= [               l,               L,         Right, Right, Right, Right ]
     };
     key <AC10> {
-        type[group1]= "FOUR_LEVEL_SEMIALPHABETIC",
-        symbols[Group1]= [        ccedilla,        Ccedilla,           acute,     doubleacute ],
-        symbols[Group2]= [        ccedilla,        Ccedilla ],
-        symbols[Group3]= [           acute ]
+        type= "FOUR_LEVEL_SEMIALPHABETIC",
+        symbols[Group1]= [          ntilde,          Ntilde,      asciitilde, dead_doubleacute ]
     };
     key <AC11> {
         type[group1]= "FOUR_LEVEL",
@@ -1519,7 +1515,7 @@ xkb_symbols "pc+br(nodeadkeys)+inet(evdev)+altwin(swap_lalt_lwin)+ctrl(nocaps)+t
         symbols[Group1]= [           space,               space,    NoSymbol,          Return,         Return, Return  ],
         actions = [             NoAction(),      NoAction(), Redirect(key=<RTRN>, clearmods=LevelThree), NoAction(), NoAction(), NoAction() ]
     };
-    key <CAPS> {         [       Control_L,       Control_L ] };
+    key <CAPS> {         [       Caps_Lock ] };
     key <FK01> {
         type[group1]= "CTRL+ALT",
         symbols[Group1]= [              F1,              F1,              F1,              F1, XF86Switch_VT_1 ],

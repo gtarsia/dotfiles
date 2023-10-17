@@ -139,20 +139,20 @@ set $ws6 "6"
 set $ws7 "7"
 set $ws_slack "9:slack"
 set $ws_dms "10:dms"
-set $ws_more "11:more"
+set $ws_tasks "11:tasks"
 
 workspace $ws1 output DP-0
 workspace $ws2 output HDMI-0
-workspace $ws_more output DP-0
 workspace $ws_slack output DP-0
 workspace $ws_dms output DP-0
+workspace $ws_tasks output DP-0
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
-bindsym $mod+q workspace number $ws_more
 bindsym $mod+s workspace number $ws_slack
 bindsym $mod+w workspace number $ws_dms
+bindsym $mod+a workspace number $ws_tasks
 bindsym $mod+3 workspace number $ws3
 bindsym $mod+4 workspace number $ws4
 bindsym $mod+5 workspace number $ws5
@@ -167,7 +167,7 @@ bindsym $mod+Shift+1 move container to workspace number $ws1
 bindsym $mod+Shift+2 move container to workspace number $ws2
 bindsym $mod+Shift+s move container to workspace number $ws_slack
 bindsym $mod+Shift+w move container to workspace number $ws_dms
-bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+a move container to workspace number $ws_tasks
 bindsym $mod+Shift+6 move container to workspace number $ws6
 bindsym $mod+Shift+7 move container to workspace number $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8
@@ -183,27 +183,27 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
+    # These bindings trigger as soon as you enter the resize mode
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym $mod+h resize shrink width 10 px or 10 ppt
-        bindsym $mod+j resize grow height 10 px or 10 ppt
-        bindsym $mod+k resize shrink height 10 px or 10 ppt
-        bindsym $mod+l resize grow width 10 px or 10 ppt
+    # Pressing left will shrink the window’s width.
+    # Pressing right will grow the window’s width.
+    # Pressing up will shrink the window’s height.
+    # Pressing down will grow the window’s height.
+    bindsym $mod+h resize shrink width 10 px or 10 ppt
+    bindsym $mod+j resize grow height 10 px or 10 ppt
+    bindsym $mod+k resize shrink height 10 px or 10 ppt
+    bindsym $mod+l resize grow width 10 px or 10 ppt
 
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+    # same bindings, but for the arrow keys
+    bindsym Left resize shrink width 10 px or 10 ppt
+    bindsym Down resize grow height 10 px or 10 ppt
+    bindsym Up resize shrink height 10 px or 10 ppt
+    bindsym Right resize grow width 10 px or 10 ppt
 
-        # back to normal: Enter or Escape or $mod+r
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
+    # back to normal: Enter or Escape or $mod+r
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+r mode "default"
 }
 
 bindsym $mod+r mode "resize"
@@ -211,22 +211,25 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
+    output HDMI-0
+    output DP-0
+    status_command bumblebee-status \
+                  -m spacer cpu memory disk date time \
+                  -p spacer.text="Libertad y Respeto a la Propiedad Privada" \
+                  -p date.format="%a %d/%m/%Y" \
+                  -t gruvbox-powerline-light
+    position top
+    tray_output DP-0
 
-        output HDMI-0
-        output DP-0
-        status_command bumblebee-status \
-                      -m spacer cpu memory disk date time \
-                      -p spacer.text="Libertad y Respeto a la Propiedad Privada" \
-                      -p date.format="%a %d/%m/%Y" \
-                      -t gruvbox-powerline-light
-        position top
-        tray_output DP-0
+    wheel_up_cmd nop
+    wheel_down_cmd nop
 }
 
 exec --no-startup-id picom --experimental-backends -b
 exec --no-startup-id xrandr --output DP-0 --mode 1920x1080 --rate 144 --gamma 1.1:0.93:0.93 --brightness 0.55
 exec --no-startup-id xrandr --output HDMI-0 --mode 1920x1080 --gamma 1.1:0.8:0.7 --brightness 0.8 --right-of DP-0
 exec --no-startup-id xkbcomp -w 0 /home/romigui/dotfiles/files/xkb/hyperx-map $DISPLAY
+exec --no-startup-id xset r rate 250 29
 exec --no-startup-id $HOME/.config/wpg/wp_init.sh
 exec --no-startup-id feh --bg-fill /home/romigui/Pictures/1.jpg  --bg-fill /home/romigui/Pictures/2.jpg
 
@@ -240,8 +243,8 @@ exec --no-startup-id google-chrome-stable
 exec --no-startup-id discord
 exec --no-startup-id alacritty
 
-for_window [class="web.whatsapp.com"] move to workspace $ws_dms
 for_window [title="WhatsApp"] move to workspace $ws_dms
+for_window [title="Home | Guido Tarsia's Workspace"] move to workspace $ws_tasks
 for_window [title="Mail - Guido Tarsia - Outlook"] move to workspace $ws_slack
 for_window [title="YouTube"] move to workspace $ws1
 # exec --no-startup-id google-chrome-stable --app=https://outlook.office.com/mail/
@@ -253,4 +256,5 @@ for_window [class="sxiv"] move to workspace $ws2
 exec --no-startup-id "i3-msg 'workspace 2; append_layout /home/romigui/.i3/workspace-2.json'"
 exec --no-startup-id "sleep 10; google-chrome-stable --app=https://web.whatsapp.com &"
 exec --no-startup-id "sleep 10; google-chrome-stable --app=https://outlook.office.com/mail/ &"
+exec --no-startup-id "sleep 10; google-chrome-stable --kiosk --app=https://app.clickup.com/ &"
 
